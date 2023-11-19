@@ -45,5 +45,8 @@ public class Patient implements Serializable {
     @OneToOne(mappedBy = "patient")
     private PsychologicalAssessment psychologicalAssessment;
 
+    @OneToOne(mappedBy = "patient")
+    private PhysicalTherapyAssessment physicalTherapyAssessment;
+
     // continue...
 }
