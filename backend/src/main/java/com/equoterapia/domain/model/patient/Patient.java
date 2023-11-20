@@ -1,46 +1,28 @@
 package com.equoterapia.domain.model.patient;
 
+import com.equoterapia.domain.model.User;
+import com.equoterapia.domain.model.patient.admissionRegistrationForm.*;
+import com.equoterapia.domain.model.patient.physicalTherapyAssessment.PhysicalTherapyAssessment;
+import com.equoterapia.domain.model.patient.psychologicalAssessment.PsychologicalAssessment;
+import com.equoterapia.domain.model.patient.uniqueTherapeuticPlan.UniqueTherapeuticPlan;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-import java.io.Serializable;
-import java.util.Date;
-
 @Getter
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
-public class Patient implements Serializable {
+public class Patient {
 
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long idPatient;
 
-    private Date assessmentDate; // data da avaliação
-
     @OneToOne(mappedBy = "patient")
-    private PersonalData personalData;
-
-    @OneToOne(mappedBy = "patient")
-    private PatientEducation patientEducation;
-
-    @OneToOne(mappedBy = "patient")
-    private ResponsiblePatient responsiblePatient;
-
-    @OneToOne(mappedBy = "patient")
-    private OtherActivitiesMorning otherActivitiesMorning;
-    @OneToOne(mappedBy = "patient")
-    private OtherActivitiesAfternoon otherActivitiesAfternoon;
-    private String observation; // sobre horario desejado das sessões de equoterapia
-
-    @OneToOne(mappedBy = "patient")
-    private Emergency emergency;
-
-    @OneToOne(mappedBy = "patient")
-    private CompletionEnrollment completionEnrollment;
+    private AdmissionRegistrationForm admissionRegistrationForm;
 
     @OneToOne(mappedBy = "patient")
     private PsychologicalAssessment psychologicalAssessment;
@@ -48,5 +30,11 @@ public class Patient implements Serializable {
     @OneToOne(mappedBy = "patient")
     private PhysicalTherapyAssessment physicalTherapyAssessment;
 
-    // continue...
+    @OneToOne(mappedBy = "patient")
+    private UniqueTherapeuticPlan uniqueTherapeuticPlan;
+
+    @ManyToOne
+    @JoinColumn(name = "user_id")
+    private User user;
+
 }

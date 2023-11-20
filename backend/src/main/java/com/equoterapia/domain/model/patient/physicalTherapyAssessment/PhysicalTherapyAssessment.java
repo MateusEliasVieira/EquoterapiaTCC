@@ -1,7 +1,6 @@
-package com.equoterapia.domain.model.patient;
+package com.equoterapia.domain.model.patient.physicalTherapyAssessment;
 
-import com.equoterapia.domain.model.Patient;
-import com.equoterapia.domain.model.patient.physicalTherapyAssessment.*;
+import com.equoterapia.domain.model.patient.Patient;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;

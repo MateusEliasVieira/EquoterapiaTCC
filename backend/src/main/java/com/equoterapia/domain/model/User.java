@@ -3,6 +3,7 @@ package com.equoterapia.domain.model;
 import com.equoterapia.domain.enums.Bond;
 import com.equoterapia.domain.enums.MaritalState;
 import com.equoterapia.domain.enums.Role;
+import com.equoterapia.domain.model.patient.Patient;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;
@@ -13,14 +14,15 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 import org.hibernate.validator.constraints.br.CPF;
-import java.io.Serializable;
 import java.util.Date;
+import java.util.List;
+
 @Getter
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
-public class User implements Serializable {
+public class User {
 
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long idUser;
@@ -58,5 +60,8 @@ public class User implements Serializable {
     private Boolean hasTraining;
     @Column(columnDefinition = "text") @NotBlank
     private String token;
+
+    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
+    private List<Patient> patientList;
 
 }

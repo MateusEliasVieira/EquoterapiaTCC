@@ -1,5 +1,6 @@
-package com.equoterapia.domain.model.patient;
+package com.equoterapia.domain.model.patient.admissionRegistrationForm;
 
+import com.equoterapia.domain.model.patient.Patient;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -26,7 +27,7 @@ public class OtherActivitiesMorning {
     private String sunday;
 
     @OneToOne
-    @JoinColumn(name = "patient_id")
-    private Patient patient;
+    @JoinColumn(name = "admissionRegistrationForm_id")
+    private AdmissionRegistrationForm admissionRegistrationForm;
 
 }

@@ -1,7 +1,6 @@
-package com.equoterapia.domain.model.patient;
+package com.equoterapia.domain.model.patient.psychologicalAssessment;
 
-import com.equoterapia.domain.enums.FillCaption;
-import com.equoterapia.domain.model.Patient;
+import com.equoterapia.domain.model.patient.Patient;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -19,96 +18,42 @@ public class PsychologicalAssessment {
 
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long idPsychologicalAssessment;
-    private Boolean didEquineTherapy;
-    private Boolean plannedChild;
-    private Boolean prenatalCare;
-    private Boolean criedAtBirth;
-    private String food;
-    private String observation;
 
-    // saúde
-    private String allergies;
-    private String convulsions;
-    private String illnesses; //doenças
-    private String digestion;
-    private String eatingDisorder; // transtorno alimentar
-    private String breathing; // respiração
-    private String sleep;
-    private String cognitiveDeficit;
+    @OneToOne(mappedBy = "psychologicalAssessment")
+    private AboutTheChild aboutTheChild;
 
-    // rotina
-    private String pranks;
-    private String preferences; // preferencias por brincadeiras
-    private Boolean acceptChangesRoutine;
-    private String considerationsAboutRoutine;
+    @OneToOne(mappedBy = "psychologicalAssessment")
+    private Health health;
 
-    // cuidados pessoais
-    private FillCaption personalHygieneYourself;
-    private FillCaption wearsClothesShoesAlone;
-    private FillCaption feedsAlone;
+    @OneToOne(mappedBy = "psychologicalAssessment")
+    private Routine routine;
 
-    // traços de personalidade
-    private FillCaption extroversion;
-    private FillCaption phobia;
-    private FillCaption obsession;
-    private FillCaption introversion;
-    private FillCaption anxiety;
-    private FillCaption hysteria;
-    private FillCaption emotionalDependence;
-    private FillCaption shyness; // timidez
+    @OneToOne(mappedBy = "psychologicalAssessment")
+    private PersonalityTraits personalityTraits;
 
-    // linguagem
-    private FillCaption understandingVerbal;
-    private FillCaption gesture;
-    private FillCaption screams; // gritos
-    private FillCaption facialMimicry; // mímica facial
-    private FillCaption monosyllables;
-    private FillCaption shortSentences;
-    private FillCaption completeSentences;
+    @OneToOne(mappedBy = "psychologicalAssessment")
+    private Language language;
 
-    // compreensão
-    private FillCaption understandsOrders;
-    private FillCaption executesSimpleVerbalOrders;
-    private FillCaption executeComplexOrders;
+    @OneToOne(mappedBy = "psychologicalAssessment")
+    private Understanding understanding;
 
-    // saúde mental
-    private FillCaption presentsMentalConfusion;
-    private FillCaption presentsDelusions;
-    private FillCaption presentsHallucinations;
+    @OneToOne(mappedBy = "psychologicalAssessment")
+    private MentalHealth mentalHealth;
 
-    // socialização
-    private FillCaption interactsWellWithOtherChildrens;
-    private FillCaption interactsWellWithAdults;
-    private FillCaption seeksSocialContact;
-    private FillCaption haveOpportunityContact;
-    private FillCaption makesEyeContact;
+    @OneToOne(mappedBy = "psychologicalAssessment")
+    private Socialization socialization;
 
-    // comportamento
-    private FillCaption agitation;
-    private FillCaption toleranceFrustration;
-    private FillCaption respectsLimitsRules;
-    private FillCaption opposition;
-    private FillCaption attentionConcentration;
+    @OneToOne(mappedBy = "psychologicalAssessment")
+    private Behavior behavior;
 
-    // habilidades sociais
-    private FillCaption passivity;
-    private FillCaption selfAggression;
-    private FillCaption heteroAggressiveness;
-    private FillCaption assertiveness;
+    @OneToOne(mappedBy = "psychologicalAssessment")
+    private SocialSkills socialSkills;
 
-    // afetividade
-    private FillCaption showsSpecialAffectionForSomeone;
-    private FillCaption shareYourThings;
-    private FillCaption helpWhenAsked;
-    private FillCaption expressionFeelings;
+    @OneToOne(mappedBy = "psychologicalAssessment")
+    private Affection affection;
 
-    // relação da família com o examinado (percepção do entrevistador)
-    private FillCaption proper; // adequado
-    private FillCaption overprotection;
-    private FillCaption difficultyNoticingDeficiencies;
-    private FillCaption rejection;
-    private FillCaption indifference;
-    private FillCaption anxietyPerceivedExaminer; // ansiedade percebida pelo examinador
+    @OneToOne(mappedBy = "psychologicalAssessment")
+    private FamilyRelationshipExaminee familyRelationshipExaminee;
 
     private String familyExpectationsEquineTherapy;
     private String caseSummaryComplementaryObservations;
