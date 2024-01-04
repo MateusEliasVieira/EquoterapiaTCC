@@ -1,6 +1,5 @@
-package com.equoterapia.domain.model.patient.admissionRegistrationForm;
+package com.equoterapia.domain.model.paciente.FichaCadastroAdmissional;
 
-import com.equoterapia.domain.model.patient.Patient;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
@@ -12,7 +11,7 @@ import lombok.Setter;
 
 import java.util.Date;
 
-import static com.equoterapia.utils.Feedback.SIGNATURE_IMAGE;
+import static com.equoterapia.utils.Feedback.ASSINATURA_IMAGEM;
 
 @Getter
 @Setter
@@ -31,7 +30,7 @@ public class CompletudeMatricula {
     private String imagemAssinaturaResponsavel;
 
     @OneToOne
-    @JoinColumn(name = "id_ficha_cadastro_admissional")
+    @JoinColumn(name = "ficha_cadastro_admissional_id")
     private FichaCadastroAdmissional fichaCadastroAdmissional;
 
 }

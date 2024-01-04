@@ -1,6 +1,6 @@
-package com.equoterapia.domain.model.patient.psychologicalAssessment;
+package com.equoterapia.domain.model.paciente.avaliacaoPsicologica;
 
-import com.equoterapia.domain.model.patient.Patient;
+import com.equoterapia.domain.model.paciente.Paciente;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -29,7 +29,7 @@ public class AvaliacaoPsicologica {
     private Rotina rotina;
 
     @OneToOne(mappedBy = "avaliacaoPsicologica")
-    private TraçosDePersonalidade tracosDePersonalidade;
+    private TracosDePersonalidade tracosDePersonalidade;
 
     @OneToOne(mappedBy = "avaliacaoPsicologica")
     private Linguagem linguagem;
@@ -61,7 +61,7 @@ public class AvaliacaoPsicologica {
     private String imagemAssinaturaOuCRPECarimbo;
 
     @OneToOne
-    @JoinColumn(name = "id_paciente")
+    @JoinColumn(name = "paciente_id")
     private Paciente paciente;
 
 }

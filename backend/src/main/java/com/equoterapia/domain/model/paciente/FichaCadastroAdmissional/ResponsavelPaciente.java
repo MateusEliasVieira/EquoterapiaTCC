@@ -1,13 +1,11 @@
-package com.equoterapia.domain.model.patient.admissionRegistrationForm;
+package com.equoterapia.domain.model.paciente.FichaCadastroAdmissional;
 
-import com.equoterapia.domain.model.patient.Patient;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-import org.springframework.format.annotation.NumberFormat;
 
 import java.util.Date;
 
@@ -43,7 +41,7 @@ public class ResponsavelPaciente {
     private Double rendaFamiliar;
 
     @OneToOne
-    @JoinColumn(name = "id_ficha_cadastro_admissional")
+    @JoinColumn(name = "ficha_cadastro_admissional_id")
     private FichaCadastroAdmissional fichaCadastroAdmissional;
 
 }

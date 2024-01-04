@@ -1,5 +1,5 @@
 package com.equoterapia.domain.enums;
 
-public enum FillCaption {
+public enum PreencherLegenda {
     SIM, NAO, NAO_OBSERVADO, PARCIALMENTE
 }

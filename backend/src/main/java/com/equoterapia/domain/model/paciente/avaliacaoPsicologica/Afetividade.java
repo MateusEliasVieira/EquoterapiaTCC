@@ -1,6 +1,6 @@
-package com.equoterapia.domain.model.patient.psychologicalAssessment;
+package com.equoterapia.domain.model.paciente.avaliacaoPsicologica;
 
-import com.equoterapia.domain.enums.FillCaption;
+import com.equoterapia.domain.enums.PreencherLegenda;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotNull;
 import lombok.AllArgsConstructor;
@@ -21,15 +21,15 @@ public class Afetividade {
     private Long idAfetividade;
     @Enumerated @NotNull
     private PreencherLegenda demonstraAfeicaoEspecialPorAlguem;
-    @Enumerado @NotNull
+    @Enumerated @NotNull
     private PreencherLegenda compartilhaSuasCoisas;
-    @Enumerado @NotNull
+    @Enumerated @NotNull
     private PreencherLegenda ajudaQuandoSolicitado;
-    @Enumerado @NotNull
+    @Enumerated @NotNull
     private PreencherLegenda expressaoDeSentimentos;
 
     @OneToOne
-    @JoinColumn(name = "id_avaliacao_psicologica")
+    @JoinColumn(name = "avaliacao_psicologica_id")
     private AvaliacaoPsicologica avaliacaoPsicologica;
 
 }

@@ -1,6 +1,6 @@
 package com.equoterapia.domain.enums;
 
-public enum SchoolClass {
+public enum ClasseDeEscola {
 
     ESPECIAL, INCLUSAO, REGULAR
 

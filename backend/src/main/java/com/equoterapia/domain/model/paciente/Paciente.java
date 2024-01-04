@@ -1,10 +1,10 @@
-package com.equoterapia.domain.model.patient;
+package com.equoterapia.domain.model.paciente;
 
-import com.equoterapia.domain.model.User;
-import com.equoterapia.domain.model.patient.admissionRegistrationForm.*;
-import com.equoterapia.domain.model.patient.physicalTherapyAssessment.PhysicalTherapyAssessment;
-import com.equoterapia.domain.model.patient.psychologicalAssessment.PsychologicalAssessment;
-import com.equoterapia.domain.model.patient.uniqueTherapeuticPlan.UniqueTherapeuticPlan;
+import com.equoterapia.domain.model.Usuario;
+import com.equoterapia.domain.model.paciente.FichaCadastroAdmissional.FichaCadastroAdmissional;
+import com.equoterapia.domain.model.paciente.avaliacaoFisioterapeutica.AvaliacaoFisioterapeutica;
+import com.equoterapia.domain.model.paciente.avaliacaoPsicologica.AvaliacaoPsicologica;
+import com.equoterapia.domain.model.paciente.planoTerapeuticoSingular.PlanoTerapeuticoSingular;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -22,19 +22,19 @@ public class Paciente {
     private Long idPaciente;
 
     @OneToOne(mappedBy = "paciente")
-    private FormularioRegistroAdmissao formularioRegistroAdmissao;
+    private FichaCadastroAdmissional fichaCadastroAdmissional;
 
     @OneToOne(mappedBy = "paciente")
     private AvaliacaoPsicologica avaliacaoPsicologica;
 
     @OneToOne(mappedBy = "paciente")
-    private AvaliacaoFisioterapia avaliacaoFisioterapia;
+    private AvaliacaoFisioterapeutica avaliacaoFisioterapeutica;
 
     @OneToOne(mappedBy = "paciente")
     private PlanoTerapeuticoSingular planoTerapeuticoSingular;
 
     @ManyToOne
-    @JoinColumn(name = "id_usuario")
+    @JoinColumn(name = "usuario_id")
     private Usuario usuario;
 
 }

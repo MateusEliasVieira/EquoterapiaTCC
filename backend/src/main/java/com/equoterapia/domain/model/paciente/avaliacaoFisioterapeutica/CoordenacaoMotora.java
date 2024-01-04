@@ -1,4 +1,4 @@
-package com.equoterapia.domain.model.patient.physicalTherapyAssessment;
+package com.equoterapia.domain.model.paciente.avaliacaoFisioterapeutica;
 
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotBlank;
@@ -17,7 +17,8 @@ public class CoordenacaoMotora {
 
     // Coordenação Motora
 
-    @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long idCoordenacaoMotora;
     @NotNull
     private Boolean testeMaoObjeto;
@@ -41,8 +42,8 @@ public class CoordenacaoMotora {
     private String consideracoesTesteAlcancePegar;
 
     @OneToOne
-    @JoinColumn(name = "id_avaliacao_fisioterapia")
-    private AvaliacaoFisioterapia avaliacaoFisioterapia;
+    @JoinColumn(name = "avaliacao_fisioterapeutica_id")
+    private AvaliacaoFisioterapeutica avaliacaoFisioterapeutica;
 
 }
 

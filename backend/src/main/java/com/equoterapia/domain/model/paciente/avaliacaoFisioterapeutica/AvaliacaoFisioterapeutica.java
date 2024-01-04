@@ -1,6 +1,11 @@
-package com.equoterapia.domain.model.patient.physicalTherapyAssessment;
+package com.equoterapia.domain.model.paciente.avaliacaoFisioterapeutica;
 
-import com.equoterapia.domain.model.patient.Patient;
+import com.equoterapia.domain.model.paciente.Paciente;
+import com.equoterapia.domain.model.patient.physicalTherapyAssessment.FormaDeComunicacao;
+import com.equoterapia.domain.model.patient.physicalTherapyAssessment.MobilidadeArticular;
+import com.equoterapia.domain.model.patient.physicalTherapyAssessment.GruposMusculares;
+import com.equoterapia.domain.model.patient.physicalTherapyAssessment.HabilidadesMotorasAVD;
+
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -15,16 +20,13 @@ import lombok.Setter;
 public class AvaliacaoFisioterapeutica {
 
     // Avaliação Fisioterapêutica
-
-    @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long idAvaliacaoFisioterapeutica;
-
     private String diagnosticoFisioterapeutico;
     private String historicoGravidez;
-
     @OneToOne(mappedBy = "avaliacaoFisioterapeutica")
     private SaudeGeralDosPacientes saudeGeralDosPacientes;
-
     @OneToOne(mappedBy = "avaliacaoFisioterapeutica")
     private FormaDeComunicacao formaDeComunicacao;
 
@@ -54,9 +56,8 @@ public class AvaliacaoFisioterapeutica {
 
     // Conclusão/Indicação para Equoterapia
     private String conclusaoIndicacaoEquoterapia;
-
     @OneToOne
-    @JoinColumn(name = "id_paciente")
+    @JoinColumn(name = "paciente_id")
     private Paciente paciente;
 
 }

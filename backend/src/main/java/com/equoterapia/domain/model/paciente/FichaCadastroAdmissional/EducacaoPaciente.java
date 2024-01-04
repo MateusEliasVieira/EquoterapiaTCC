@@ -1,7 +1,6 @@
-package com.equoterapia.domain.model.patient.admissionRegistrationForm;
+package com.equoterapia.domain.model.paciente.FichaCadastroAdmissional;
 
 import com.equoterapia.domain.enums.*;
-import com.equoterapia.domain.model.patient.Patient;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotBlank;
 import lombok.AllArgsConstructor;
@@ -23,7 +22,7 @@ public class EducacaoPaciente {
     @NotBlank
     private String serieEscolar;
     @Enumerated
-    private TurmaEscolar turmaEscolar;
+    private ClasseDeEscola classeDeEscola;
     @NotBlank
     private String instituicaoEducacional;
     @Enumerated
@@ -32,7 +31,7 @@ public class EducacaoPaciente {
     private Periodo periodo;
 
     @OneToOne
-    @JoinColumn(name = "id_ficha_cadastro_admissional")
+    @JoinColumn(name = "ficha_cadastro_admissional_id")
     private FichaCadastroAdmissional fichaCadastroAdmissional;
 
 }

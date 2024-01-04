@@ -1,5 +1,6 @@
 package com.equoterapia.domain.model.patient.physicalTherapyAssessment;
 
+import com.equoterapia.domain.model.paciente.avaliacaoFisioterapeutica.AvaliacaoFisioterapeutica;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -60,7 +61,7 @@ public class MobilidadeArticular {
     private String flexaoPlantarPassivaTornozelo;
 
     @OneToOne
-    @JoinColumn(name = "id_avaliacao_fisioterapia")
-    private AvaliacaoFisioterapia avaliacaoFisioterapia;
+    @JoinColumn(name = "avaliacao_fisioterapeutica_id")
+    private AvaliacaoFisioterapeutica avaliacaoFisioterapeutica;
 }
 

@@ -1,4 +1,4 @@
-package com.equoterapia.domain.model.patient.psychologicalAssessment;
+package com.equoterapia.domain.model.paciente.avaliacaoPsicologica;
 
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotBlank;
@@ -36,7 +36,7 @@ public class Saude {
     private String deficitCognitivo;
 
     @OneToOne
-    @JoinColumn(name = "id_avaliacao_psicologica")
+    @JoinColumn(name = "avaliacao_psicologica_id")
     private AvaliacaoPsicologica avaliacaoPsicologica;
 
 }

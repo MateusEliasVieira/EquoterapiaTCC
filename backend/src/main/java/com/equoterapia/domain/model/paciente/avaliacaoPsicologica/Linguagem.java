@@ -1,6 +1,6 @@
-package com.equoterapia.domain.model.patient.psychologicalAssessment;
+package com.equoterapia.domain.model.paciente.avaliacaoPsicologica;
 
-import com.equoterapia.domain.enums.FillCaption;
+import com.equoterapia.domain.enums.PreencherLegenda;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotNull;
 import lombok.AllArgsConstructor;
@@ -21,21 +21,21 @@ public class Linguagem {
     private Long idLinguagem;
     @Enumerated @NotNull
     private PreencherLegenda compreensaoVerbal;
-    @Enumerado @NotNull
+    @Enumerated @NotNull
     private PreencherLegenda gesto;
-    @Enumerado @NotNull
+    @Enumerated @NotNull
     private PreencherLegenda gritos;
-    @Enumerado @NotNull
+    @Enumerated @NotNull
     private PreencherLegenda mímicaFacial;
-    @Enumerado @NotNull
+    @Enumerated @NotNull
     private PreencherLegenda monossílabos;
-    @Enumerado @NotNull
+    @Enumerated @NotNull
     private PreencherLegenda frasesCurtas;
-    @Enumerado @NotNull
+    @Enumerated @NotNull
     private PreencherLegenda frasesCompletas;
 
     @OneToOne
-    @JoinColumn(name = "id_avaliacao_psicologica")
+    @JoinColumn(name = "avaliacao_psicologica_id")
     private AvaliacaoPsicologica avaliacaoPsicologica;
 
 }

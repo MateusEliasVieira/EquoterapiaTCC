@@ -1,6 +1,6 @@
-package com.equoterapia.domain.model.patient.uniqueTherapeuticPlan;
+package com.equoterapia.domain.model.paciente.planoTerapeuticoSingular;
 
-import com.equoterapia.domain.model.patient.Patient;
+import com.equoterapia.domain.model.paciente.Paciente;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
@@ -45,7 +45,7 @@ public class PlanoTerapeuticoSingular {
     private String imagemCarimboAssinaturaTerapeutas;
 
     @OneToOne
-    @JoinColumn(name = "id_paciente")
+    @JoinColumn(name = "paciente_id")
     private Paciente paciente;
 
 }

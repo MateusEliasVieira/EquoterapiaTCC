@@ -1,6 +1,6 @@
-package com.equoterapia.domain.model.patient.physicalTherapyAssessment;
+package com.equoterapia.domain.model.paciente.avaliacaoFisioterapeutica;
 
-import com.equoterapia.domain.enums.StaticBalance;
+import com.equoterapia.domain.enums.EquilibrioEstatico;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotBlank;
 import lombok.AllArgsConstructor;
@@ -37,8 +37,8 @@ public class EquilibrioDinamico {
     private String comentariosCorrerDesviandoObstaculos;
 
     @OneToOne
-    @JoinColumn(name = "id_avaliacao_fisioterapia")
-    private AvaliacaoFisioterapia avaliacaoFisioterapia;
+    @JoinColumn(name = "avaliacao_fisioterapeutica_id")
+    private AvaliacaoFisioterapeutica avaliacaoFisioterapeutica;
 
 }
 

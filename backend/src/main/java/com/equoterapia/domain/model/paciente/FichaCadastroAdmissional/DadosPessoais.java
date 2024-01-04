@@ -1,6 +1,5 @@
-package com.equoterapia.domain.model.paciente.formularioDeInscricaoDeAdmissao;
+package com.equoterapia.domain.model.paciente.FichaCadastroAdmissional;
 
-import com.equoterapia.domain.model.paciente.formularioDeInscricaoDeAdmissao.FichaCadastroAdmissional;
 import com.equoterapia.domain.enums.CorOuRaca;
 import com.equoterapia.domain.enums.Sexo;
 import com.equoterapia.domain.enums.TipoSanguineo;
@@ -65,7 +64,7 @@ public class DadosPessoais {
     private String CEP;
 
     @OneToOne
-    @JoinColumn(name = "id_ficha_cadastro_admissional")
+    @JoinColumn(name = "ficha_cadastro_admissional_id")
     private FichaCadastroAdmissional fichaCadastroAdmissional;
 
 }

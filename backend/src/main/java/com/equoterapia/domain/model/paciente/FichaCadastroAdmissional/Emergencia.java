@@ -1,4 +1,4 @@
-package com.equoterapia.domain.model.patient.admissionRegistrationForm;
+package com.equoterapia.domain.model.paciente.FichaCadastroAdmissional;
 
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotBlank;
@@ -33,7 +33,7 @@ public class Emergencia {
     private String plano; // Caso tenha, qual é?
 
     @OneToOne
-    @JoinColumn(name = "id_ficha_cadastro_admissional")
+    @JoinColumn(name = "ficha_cadastro_admissional_id")
     private FichaCadastroAdmissional fichaCadastroAdmissional;
 
 }

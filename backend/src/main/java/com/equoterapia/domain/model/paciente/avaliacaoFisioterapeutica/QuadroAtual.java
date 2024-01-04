@@ -1,4 +1,4 @@
-package com.equoterapia.domain.model.patient.physicalTherapyAssessment;
+package com.equoterapia.domain.model.paciente.avaliacaoFisioterapeutica;
 
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotBlank;
@@ -26,8 +26,8 @@ public class QuadroAtual {
     private String deformidades;
 
     @OneToOne
-    @JoinColumn(name = "id_avaliacao_fisioterapia")
-    private AvaliacaoFisioterapia avaliacaoFisioterapia;
+    @JoinColumn(name = "avaliacao_fisioterapia_id")
+    private AvaliacaoFisioterapeutica avaliacaoFisioterapeutica;
 
 }
 

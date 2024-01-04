@@ -1,6 +1,6 @@
-package com.equoterapia.domain.model.patient.psychologicalAssessment;
+package com.equoterapia.domain.model.paciente.avaliacaoPsicologica;
 
-import com.equoterapia.domain.enums.FillCaption;
+import com.equoterapia.domain.enums.PreencherLegenda;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotBlank;
 import lombok.AllArgsConstructor;
@@ -19,17 +19,17 @@ public class HabilidadesSociais {
 
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long idHabilidadesSociais;
-    @Enumerado @NotBlank
+    @Enumerated @NotBlank
     private PreencherLegenda passividade;
-    @Enumerado @NotBlank
+    @Enumerated @NotBlank
     private PreencherLegenda autoagressao;
-    @Enumerado @NotBlank
+    @Enumerated @NotBlank
     private PreencherLegenda heteroagressividade;
-    @Enumerado @NotBlank
+    @Enumerated @NotBlank
     private PreencherLegenda assertividade;
 
     @OneToOne
-    @JoinColumn(name = "id_avaliacao_psicologica")
+    @JoinColumn(name = "avaliacao_psicologica_id")
     private AvaliacaoPsicologica avaliacaoPsicologica;
 
 }

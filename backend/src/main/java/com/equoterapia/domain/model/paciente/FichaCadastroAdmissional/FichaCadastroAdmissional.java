@@ -1,4 +1,4 @@
-package com.equoterapia.domain.model.paciente.formularioDeInscricaoDeAdmissao;
+package com.equoterapia.domain.model.paciente.FichaCadastroAdmissional;
 
 import com.equoterapia.domain.model.paciente.Paciente;
 import jakarta.persistence.*;
@@ -25,27 +25,27 @@ public class FichaCadastroAdmissional {
     private DadosPessoais dadosPessoais;
 
     @OneToOne(mappedBy = "fichaCadastroAdmissional")
-    private com.equoterapia.domain.model.patient.admissionRegistrationForm.EducacaoPaciente educacaoPaciente;
+    private EducacaoPaciente educacaoPaciente;
 
     @OneToOne(mappedBy = "fichaCadastroAdmissional")
-    private com.equoterapia.domain.model.patient.admissionRegistrationForm.ResponsavelPaciente responsavelPaciente;
+    private ResponsavelPaciente responsavelPaciente;
 
     @OneToOne(mappedBy = "fichaCadastroAdmissional")
-    private com.equoterapia.domain.model.patient.admissionRegistrationForm.OutrasAtividadesManha outrasAtividadesManha;
+    private OutrasAtividadesManha outrasAtividadesManha;
 
     @OneToOne(mappedBy = "fichaCadastroAdmissional")
-    private com.equoterapia.domain.model.patient.admissionRegistrationForm.OutrasAtividadesTarde outrasAtividadesTarde;
+    private OutrasAtividadesTarde outrasAtividadesTarde;
 
     private String observacao; // Sobre horário desejado das sessões de equoterapia
 
     @OneToOne(mappedBy = "fichaCadastroAdmissional")
-    private com.equoterapia.domain.model.patient.admissionRegistrationForm.Emergencia emergencia;
+    private Emergencia emergencia;
 
     @OneToOne(mappedBy = "fichaCadastroAdmissional")
-    private com.equoterapia.domain.model.patient.admissionRegistrationForm.CompletudeMatricula completudeMatricula;
+    private CompletudeMatricula completudeMatricula;
 
     @OneToOne
-    @JoinColumn(name = "id_paciente")
+    @JoinColumn(name = "paciente_id")
     private Paciente paciente;
 }
 
