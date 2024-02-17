@@ -1,0 +1,64 @@
+package com.equoterapia.domain.model.paciente.avaliacaoFisioterapeutica;
+
+import jakarta.persistence.*;
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+
+@Getter
+@Setter
+@AllArgsConstructor
+@NoArgsConstructor
+@Entity
+public class HabilidadesMotorasAVD {
+
+    // Habilidades Motoras/AVD's
+
+    @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long idHabilidadesMotorasAVD;
+    @NotNull
+    private Boolean alcancarObjetos;
+    @NotBlank
+    private String consideracoesAlcancarObjetos;
+    @NotNull
+    private Boolean usoBimanual;
+    @NotBlank
+    private String consideracoesUsoBimanual;
+    @NotNull
+    private Boolean alimentacaoIndependente;
+    @NotBlank
+    private String consideracoesAlimentacaoIndependente;
+    @NotNull
+    private Boolean vestirIndependente;
+    @NotBlank
+    private String consideracoesVestirIndependente;
+    @NotNull
+    private Boolean pegarObjetos;
+    @NotBlank
+    private String consideracoesPegarObjetos;
+    @NotNull
+    private Boolean negligenciaMembro;
+    @NotBlank
+    private String consideracoesNegligenciaMembro;
+    @NotNull
+    private Boolean higienePessoal;
+    @NotBlank
+    private String consideracoesHigienePessoal;
+    @NotNull
+    private Boolean andar;
+    @NotBlank
+    private String consideracoesAndar;
+    @NotNull
+    private Boolean escritaManual;
+    @NotBlank
+    private String consideracoesEscritaManual;
+
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "avaliacao_fisioterapeutica_id")
+    private AvaliacaoFisioterapeutica avaliacaoFisioterapeutica;
+
+}
+
