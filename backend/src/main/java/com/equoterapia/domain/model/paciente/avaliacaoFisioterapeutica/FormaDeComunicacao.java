@@ -1,6 +1,6 @@
-package com.equoterapia.domain.model.patient.physicalTherapyAssessment;
+package com.equoterapia.domain.model.paciente.avaliacaoFisioterapeutica;
 
-import com.equoterapia.domain.model.paciente.avaliacaoFisioterapeutica.AvaliacaoFisioterapeutica;
+import com.equoterapia.domain.model.paciente.Paciente;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
@@ -20,22 +20,16 @@ public class FormaDeComunicacao {
 
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long idFormaDeComunicacao;
-    @NotNull
     private Boolean fala;
-    @NotBlank
     private String consideracoesFala;
-    @NotNull
     private Boolean gestos;
-    @NotBlank
     private String consideracoesGestos;
-    @NotNull
     private Boolean usoDosOlhos;
-    @NotBlank
     private String consideracoesUsoDosOlhos;
 
     @OneToOne
-    @JoinColumn(name = "avaliacao_fisioterapeutica_id")
-    private AvaliacaoFisioterapeutica avaliacaoFisioterapeutica;
+    @JoinColumn(name = "paciente_id_fk")
+    private Paciente paciente;
 
 }
 

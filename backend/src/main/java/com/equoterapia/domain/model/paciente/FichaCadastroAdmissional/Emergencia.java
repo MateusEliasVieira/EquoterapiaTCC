@@ -1,5 +1,6 @@
-package com.equoterapia.domain.model.paciente.FichaCadastroAdmissional;
+package com.equoterapia.domain.model.paciente.fichaCadastroAdmissional;
 
+import com.equoterapia.domain.model.paciente.Paciente;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
@@ -22,18 +23,13 @@ public class Emergencia {
 
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long idEmergencia;
-    @NotBlank(message = TELEFONE_EMERGENCIA)
-    @Pattern(regexp = "\\(\\d{2}\\)\\d{5}-\\d{4}", message = FORMATO_TELEFONE)
     private String ligarPara;
-    @NotBlank(message = TELEFONE)
-    @Pattern(regexp = "\\(\\d{2}\\)\\d{5}-\\d{4}", message = FORMATO_TELEFONE)
     private String telefone;
-    @NotNull
     private Boolean possuiPlanoDeSaude;
     private String plano; // Caso tenha, qual é?
 
     @OneToOne
-    @JoinColumn(name = "ficha_cadastro_admissional_id")
-    private FichaCadastroAdmissional fichaCadastroAdmissional;
+    @JoinColumn(name = "paciente_id_fk")
+    private Paciente paciente;
 
 }

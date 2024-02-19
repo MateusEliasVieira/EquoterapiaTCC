@@ -1,22 +1,18 @@
-package com.equoterapia.domain.model.patient.physicalTherapyAssessment;
+package com.equoterapia.api.dto.paciente.avaliacaoFisioterapeutica;
 
-import com.equoterapia.domain.model.paciente.avaliacaoFisioterapeutica.AvaliacaoFisioterapeutica;
+import com.equoterapia.domain.model.paciente.Paciente;
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 
 @Getter
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
-@Entity
+@ToString
 public class MobilidadeArticular {
 
     // Mobilidade articular
 
-    @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long idMobilidadeArticular;
 
     // Ombro (Shoulder)
@@ -60,8 +56,7 @@ public class MobilidadeArticular {
     private String flexaoPlantarAtivaTornozelo;
     private String flexaoPlantarPassivaTornozelo;
 
-    @OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "avaliacao_fisioterapeutica_id")
-    private AvaliacaoFisioterapeutica avaliacaoFisioterapeutica;
+
+    private Paciente paciente;
 }
 

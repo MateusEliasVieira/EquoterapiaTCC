@@ -1,17 +1,15 @@
-package com.equoterapia.domain.model.paciente.FichaCadastroAdmissional;
+package com.equoterapia.domain.model.paciente.fichaCadastroAdmissional;
 
 import com.equoterapia.domain.model.paciente.Paciente;
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 
 import java.util.Date;
 @Getter
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
+@ToString
 @Entity
 public class FichaCadastroAdmissional {
 
@@ -21,31 +19,8 @@ public class FichaCadastroAdmissional {
     private Long idFichaCadastroAdmissional;
     private Date dataAvaliacao; // Data da avaliação
 
-    @OneToOne(mappedBy = "fichaCadastroAdmissional")
-    private DadosPessoais dadosPessoais;
-
-    @OneToOne(mappedBy = "fichaCadastroAdmissional")
-    private EducacaoPaciente educacaoPaciente;
-
-    @OneToOne(mappedBy = "fichaCadastroAdmissional")
-    private ResponsavelPaciente responsavelPaciente;
-
-    @OneToOne(mappedBy = "fichaCadastroAdmissional")
-    private OutrasAtividadesManha outrasAtividadesManha;
-
-    @OneToOne(mappedBy = "fichaCadastroAdmissional")
-    private OutrasAtividadesTarde outrasAtividadesTarde;
-
-    private String observacao; // Sobre horário desejado das sessões de equoterapia
-
-    @OneToOne(mappedBy = "fichaCadastroAdmissional")
-    private Emergencia emergencia;
-
-    @OneToOne(mappedBy = "fichaCadastroAdmissional")
-    private CompletudeMatricula completudeMatricula;
-
     @OneToOne
-    @JoinColumn(name = "paciente_id")
+    @JoinColumn(name = "paciente_id_fk")
     private Paciente paciente;
 }
 

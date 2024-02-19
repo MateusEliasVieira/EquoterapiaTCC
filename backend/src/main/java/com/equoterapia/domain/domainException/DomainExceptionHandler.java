@@ -1,4 +1,4 @@
-package com.seminfo.domain.domainException;
+package com.equoterapia.domain.domainException;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -9,12 +9,12 @@ import java.time.OffsetDateTime;
 
 @ControllerAdvice
 public class DomainExceptionHandler {
-    @ExceptionHandler(BusinessRulesException.class)
-    public ResponseEntity<Problem> handleRegrasDeNegocioException(BusinessRulesException ex) {
+    @ExceptionHandler(RegrasDeNegocioException.class)
+    public ResponseEntity<Problema> handleRegrasDeNegocioException(RegrasDeNegocioException ex) {
 
         var status = HttpStatus.BAD_REQUEST;
 
-        var problem = new Problem();
+        var problem = new Problema();
         problem.setStatus(status.value());
         problem.setTitle(ex.getMessage());
         problem.setDate(OffsetDateTime.now());

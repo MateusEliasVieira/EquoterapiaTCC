@@ -1,16 +1,15 @@
-package com.seminfo.security.jwt;
+package com.equoterapia.security.jwt;
 
 import java.time.LocalDateTime;
 import java.time.ZoneOffset;
 
 import com.auth0.jwt.exceptions.JWTCreationException;
 import com.auth0.jwt.exceptions.JWTVerificationException;
-import com.seminfo.domain.model.User;
+import com.equoterapia.domain.model.usuario.Usuario;
 
 import com.auth0.jwt.JWT;
 import com.auth0.jwt.algorithms.Algorithm;
 import com.auth0.jwt.interfaces.DecodedJWT;
-
 
 public class JwtToken {
 
@@ -18,15 +17,15 @@ public class JwtToken {
 	private static final String TOKEN_KEY = "01234567890123456789012345678901"; // Chave deve ter 256 bits, nesse caso 32 caracteres, para a criptografia
 	private static final long MINUTOS = 60;
 
-	public static String generateTokenJWT(User user)
+	public static String generateTokenJWT(Usuario usuario)
 	{
 		try{
 			String token = JWT.create()
-					.withSubject(user.getUsername()) // (Payload) define para quem é esse token (Sujeito)
+					.withSubject(usuario.getNomeUsuario()) // (Payload) define para quem é esse token (Sujeito)
 					.withIssuer(EMISSOR) // (Payload) minha referencia (Emissor)
 					.withExpiresAt(LocalDateTime.now().plusMinutes(MINUTOS).toInstant(ZoneOffset.of("-03:00"))) // (Payload)
-					.withClaim("idUser", user.getIdUser()) // (Payload) id do usuário
-					.withClaim("permission", String.valueOf(user.getRole())) // Permissão do usuário
+					.withClaim("idUser", usuario.getIdUsuario()) // (Payload) id do usuário
+					.withClaim("permission", String.valueOf(usuario.getRole())) // Permissão do usuário
 					.sign(Algorithm.HMAC256(TOKEN_KEY.getBytes())); // (Signature)
 
 			return token;

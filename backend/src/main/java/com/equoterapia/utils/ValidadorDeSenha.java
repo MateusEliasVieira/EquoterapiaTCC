@@ -1,8 +1,8 @@
 package com.equoterapia.utils;
 
-import com.seminfo.domain.domainException.BusinessRulesException;
+import com.equoterapia.domain.domainException.RegrasDeNegocioException;
 
-public class StrongPassword {
+public class ValidadorDeSenha {
 
     public static void isStrong(String password) {
         int countLetter = 0;
@@ -28,7 +28,7 @@ public class StrongPassword {
         }
 
         if (!(countLetter >= 2 && countSpecialCharacters >= 2 && countNumbers >= 2)) {
-            throw new BusinessRulesException(Feedback.WEAK_PASSWORD);
+            throw new RegrasDeNegocioException(Feedback.SENHA_CADASTRO);
         }
 
     }

@@ -1,22 +1,19 @@
-package com.equoterapia.domain.model.paciente.avaliacaoFisioterapeutica;
+package com.equoterapia.api.dto.paciente.avaliacaoFisioterapeutica;
 
+import com.equoterapia.domain.model.paciente.Paciente;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotBlank;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 
 @Getter
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
-@Entity
+@ToString
 public class QuadroAtual {
 
     // Quadro atual
 
-    @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long idQuadroAtual;
     @NotBlank
     private String locomocaoAtual;
@@ -25,9 +22,8 @@ public class QuadroAtual {
     @NotBlank
     private String deformidades;
 
-    @OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "avaliacao_fisioterapia_id")
-    private AvaliacaoFisioterapeutica avaliacaoFisioterapeutica;
+
+    private Paciente paciente;
 
 }
 

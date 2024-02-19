@@ -1,7 +1,7 @@
-package com.equoterapia.domain.service;
+package com.equoterapia.domain.service.usuario;
 
 import com.equoterapia.api.dto.novaSenha.NovaSenhaInputDTO;
-import com.equoterapia.domain.model.Usuario;
+import com.equoterapia.domain.model.usuario.Usuario;
 
 import java.util.Date;
 

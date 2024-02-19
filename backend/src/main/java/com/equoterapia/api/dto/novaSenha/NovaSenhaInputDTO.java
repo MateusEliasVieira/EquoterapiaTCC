@@ -1,4 +1,4 @@
-package com.equoterapia.api.dto.password;
+package com.equoterapia.api.dto.novaSenha;
 
 import com.equoterapia.utils.Feedback;
 import jakarta.validation.constraints.NotBlank;

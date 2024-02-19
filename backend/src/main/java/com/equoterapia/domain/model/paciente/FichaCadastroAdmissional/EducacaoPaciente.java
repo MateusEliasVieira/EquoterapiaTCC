@@ -1,6 +1,7 @@
-package com.equoterapia.domain.model.paciente.FichaCadastroAdmissional;
+package com.equoterapia.domain.model.paciente.fichaCadastroAdmissional;
 
 import com.equoterapia.domain.enums.*;
+import com.equoterapia.domain.model.paciente.Paciente;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotBlank;
 import lombok.AllArgsConstructor;
@@ -19,20 +20,15 @@ public class EducacaoPaciente {
 
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long idEducacaoPaciente;
-    @NotBlank
     private String serieEscolar;
-    @Enumerated
     private ClasseDeEscola classeDeEscola;
-    @NotBlank
     private String instituicaoEducacional;
-    @Enumerated
     private TipoDeInstituicaoEducacional tipoDeInstituicaoEducacional;
-    @Enumerated
     private Periodo periodo;
 
     @OneToOne
-    @JoinColumn(name = "ficha_cadastro_admissional_id")
-    private FichaCadastroAdmissional fichaCadastroAdmissional;
+    @JoinColumn(name = "paciente_id_fk")
+    private Paciente paciente;
 
 }
 

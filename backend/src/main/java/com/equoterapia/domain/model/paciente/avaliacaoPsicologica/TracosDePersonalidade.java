@@ -1,6 +1,7 @@
 package com.equoterapia.domain.model.paciente.avaliacaoPsicologica;
 
 import com.equoterapia.domain.enums.PreencherLegenda;
+import com.equoterapia.domain.model.paciente.Paciente;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotNull;
 import lombok.AllArgsConstructor;
@@ -19,25 +20,16 @@ public class TracosDePersonalidade {
 
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long idTracosDePersonalidade;
-    @Enumerated @NotNull
     private PreencherLegenda extroversao;
-    @Enumerated @NotNull
     private PreencherLegenda fobia;
-    @Enumerated @NotNull
     private PreencherLegenda obsessao;
-    @Enumerated @NotNull
     private PreencherLegenda introversao;
-    @Enumerated @NotNull
     private PreencherLegenda ansiedade;
-    @Enumerated @NotNull
     private PreencherLegenda histeria;
-    @Enumerated @NotNull
     private PreencherLegenda dependenciaEmocional;
-    @Enumerated @NotNull
     private PreencherLegenda timidez;
 
     @OneToOne
-    @JoinColumn(name = "avaliacao_psicologica_id")
-    private AvaliacaoPsicologica avaliacaoPsicologica;
-
+    @JoinColumn(name = "paciente_id_fk")
+    private Paciente paciente;
 }

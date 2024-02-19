@@ -1,11 +1,11 @@
-package com.equoterapia.domain.model.paciente;
+package com.equoterapia.api.dto.paciente;
 
-import com.equoterapia.domain.model.Usuario;
-import com.equoterapia.domain.model.paciente.fichaCadastroAdmissional.FichaCadastroAdmissional;
-import com.equoterapia.domain.model.paciente.avaliacaoFisioterapeutica.AvaliacaoFisioterapeutica;
-import com.equoterapia.domain.model.paciente.avaliacaoPsicologica.AvaliacaoPsicologica;
-import com.equoterapia.domain.model.paciente.planoTerapeuticoSingular.PlanoTerapeuticoSingular;
-import jakarta.persistence.*;
+import com.equoterapia.api.dto.paciente.avaliacaoFisioterapeutica.SaudeGeralDosPacientes;
+import com.equoterapia.api.dto.usuario.UsuarioInputDTO;
+import jakarta.persistence.CascadeType;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
+import jakarta.persistence.OneToOne;
 import lombok.*;
 
 @Getter
@@ -13,26 +13,12 @@ import lombok.*;
 @AllArgsConstructor
 @NoArgsConstructor
 @ToString
-@Entity
 public class Paciente {
 
-    @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long idPaciente;
 
-    @OneToOne(mappedBy = "paciente", cascade = CascadeType.ALL)
-    private FichaCadastroAdmissional fichaCadastroAdmissional;
+    private SaudeGeralDosPacientes saudeGeralDosPacientes;
 
-    @OneToOne(mappedBy = "paciente", cascade = CascadeType.ALL)
-    private AvaliacaoPsicologica avaliacaoPsicologica;
-
-    @OneToOne(mappedBy = "paciente", cascade = CascadeType.ALL)
-    private AvaliacaoFisioterapeutica avaliacaoFisioterapeutica;
-
-    @OneToOne(mappedBy = "paciente", cascade = CascadeType.ALL)
-    private PlanoTerapeuticoSingular planoTerapeuticoSingular;
-
-    @ManyToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "usuario_id")
-    private Usuario usuario;
+    private UsuarioInputDTO usuarioInputDTO;
 
 }

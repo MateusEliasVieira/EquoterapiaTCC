@@ -1,5 +1,6 @@
 package com.equoterapia.domain.model.paciente.avaliacaoPsicologica;
 
+import com.equoterapia.domain.model.paciente.Paciente;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotBlank;
 import lombok.AllArgsConstructor;
@@ -18,18 +19,14 @@ public class Rotina {
 
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long idRotina;
-    @NotBlank
     private String brincadeiras;
-    @NotBlank
     private String preferenciasPorBrincadeiras;
-    @NotBlank
     private Boolean aceitaMudancasNaRotina;
-    @NotBlank
     private String consideracoesSobreRotina;
 
     @OneToOne
-    @JoinColumn(name = "avaliacao_psicologica_id")
-    private AvaliacaoPsicologica avaliacaoPsicologica;
+    @JoinColumn(name = "paciente_id_fk")
+    private Paciente paciente;
 
 }
 

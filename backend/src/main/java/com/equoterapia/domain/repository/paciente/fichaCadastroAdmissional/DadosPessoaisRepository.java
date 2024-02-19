@@ -1,4 +1,4 @@
-package com.equoterapia.domain.repository.paciente;
+package com.equoterapia.domain.repository.paciente.fichaCadastroAdmissional;
 
 import com.equoterapia.domain.model.paciente.fichaCadastroAdmissional.DadosPessoais;
 import org.springframework.data.jpa.repository.JpaRepository;

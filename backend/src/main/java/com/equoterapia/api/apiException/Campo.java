@@ -9,7 +9,7 @@ import lombok.Setter;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-public class Field {
-    private String nameField;
-    private String message;
+public class Campo {
+    private String nomeCampo;
+    private String mensagem;
 }

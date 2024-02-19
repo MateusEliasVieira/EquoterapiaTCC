@@ -1,8 +1,9 @@
-package com.equoterapia.domain.model.paciente.FichaCadastroAdmissional;
+package com.equoterapia.domain.model.paciente.fichaCadastroAdmissional;
 
 import com.equoterapia.domain.enums.CorOuRaca;
 import com.equoterapia.domain.enums.Sexo;
 import com.equoterapia.domain.enums.TipoSanguineo;
+import com.equoterapia.domain.model.paciente.Paciente;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
@@ -24,48 +25,31 @@ public class DadosPessoais {
 
     // Dados Pessoais do Praticante
 
-    @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long idDadosPessoais;
-    @NotBlank
     private String nomeCompleto;
-    @NotBlank
     private String diagnosticoClinico;
-    @NotBlank
     private String queixaPrincipal; // Queixa principal (EX: dificuldade de concentração)
-    @NotBlank
     private String CID;
-    @NotBlank @NotNull @Size(min = 8, max = 10)
     private Date dataNascimento;
-    @NotNull
     private Double peso;
-    @Enumerated
     private TipoSanguineo tipoSanguineo;
-    @NotBlank
     private String fatorRH;
-    @NotNull
     private Double altura;
-    @Enumerated
     private Sexo sexo;
-    @NotBlank
     private String naturalidade;
-    @Enumerated
     private CorOuRaca corOuRaca;
-    @CPF @NotBlank
     private String CPF;
-    @NotBlank
     private String cartaoSUS;
-    @NotBlank
     private String enderecoResidencial;
-    @NotBlank
     private String bairro;
-    @NotBlank
     private String cidade;
-    @NotBlank @Size(min = 8, max = 9)
     private String CEP;
 
     @OneToOne
-    @JoinColumn(name = "ficha_cadastro_admissional_id")
-    private FichaCadastroAdmissional fichaCadastroAdmissional;
+    @JoinColumn(name = "paciente_id_fk")
+    private Paciente paciente;
 
 }
 

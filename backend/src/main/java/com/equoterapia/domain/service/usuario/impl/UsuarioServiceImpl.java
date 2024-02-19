@@ -1,11 +1,11 @@
-package com.equoterapia.domain.service.impl;
+package com.equoterapia.domain.service.usuario.impl;
 
 import com.equoterapia.api.dto.novaSenha.NovaSenhaInputDTO;
 import com.equoterapia.domain.domainException.RegrasDeNegocioException;
 import com.equoterapia.domain.enums.Role;
-import com.equoterapia.domain.model.Usuario;
-import com.equoterapia.domain.repository.UsuarioRepository;
-import com.equoterapia.domain.service.UsuarioService;
+import com.equoterapia.domain.model.usuario.Usuario;
+import com.equoterapia.domain.repository.usuario.UsuarioRepository;
+import com.equoterapia.domain.service.usuario.UsuarioService;
 import com.equoterapia.security.jwt.JwtToken;
 import com.equoterapia.utils.Feedback;
 import org.springframework.beans.factory.annotation.Autowired;

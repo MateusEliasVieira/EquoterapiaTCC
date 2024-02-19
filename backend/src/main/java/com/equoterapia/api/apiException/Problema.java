@@ -14,11 +14,11 @@ import java.util.List;
 @AllArgsConstructor
 @NoArgsConstructor
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public class Problem {
+public class Problema {
 
     private Integer status;
-    private OffsetDateTime date;
-    private String title;
-    private List<Field> list;
+    private OffsetDateTime data;
+    private String titulo;
+    private List<Campo> lista;
 
 }

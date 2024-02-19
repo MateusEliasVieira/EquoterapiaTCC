@@ -1,22 +1,19 @@
-package com.equoterapia.domain.model.paciente.avaliacaoPsicologica;
+package com.equoterapia.api.dto.paciente.avaliacaoPsicologica;
 
+import com.equoterapia.domain.model.paciente.Paciente;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotBlank;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 
 @Getter
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
-@Entity
+@ToString
 public class Saude {
 
     // Saúde
 
-    @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long idSaude;
     @NotBlank
     private String alergias;
@@ -35,9 +32,8 @@ public class Saude {
     @NotBlank
     private String deficitCognitivo;
 
-    @OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "avaliacao_psicologica_id")
-    private AvaliacaoPsicologica avaliacaoPsicologica;
+
+    private Paciente paciente;
 
 }
 

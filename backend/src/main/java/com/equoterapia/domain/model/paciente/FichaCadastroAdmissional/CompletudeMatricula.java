@@ -1,5 +1,6 @@
-package com.equoterapia.domain.model.paciente.FichaCadastroAdmissional;
+package com.equoterapia.domain.model.paciente.fichaCadastroAdmissional;
 
+import com.equoterapia.domain.model.paciente.Paciente;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
@@ -24,14 +25,12 @@ public class CompletudeMatricula {
 
     @Id @GeneratedValue(strategy = GenerationType.AUTO)
     private Long idCompletudeMatricula;
-    @NotBlank @NotNull @Size(min = 8, max = 10)
     private Date dataCompletudeMatricula;
-    @NotBlank(message = ASSINATURA_IMAGEM)
     private String imagemAssinaturaResponsavel;
 
     @OneToOne
-    @JoinColumn(name = "ficha_cadastro_admissional_id")
-    private FichaCadastroAdmissional fichaCadastroAdmissional;
+    @JoinColumn(name = "paciente_id_fk")
+    private Paciente paciente;
 
 }
 

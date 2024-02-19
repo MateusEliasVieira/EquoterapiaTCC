@@ -1,6 +1,6 @@
-package com.equoterapia.domain.model.paciente.planoTerapeuticoSingular;
+package com.equoterapia.api.dto.paciente.planoTerapeuticoSingular;
 
-import com.equoterapia.domain.model.paciente.Paciente;
+import com.equoterapia.api.dto.paciente.Paciente;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
@@ -14,14 +14,14 @@ import java.util.Date;
 @AllArgsConstructor
 @NoArgsConstructor
 @ToString
-@Entity
 public class PlanoTerapeuticoSingular {
 
     // Plano Terapêutico Singular (PTS)
 
-    @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long idPlanoTerapeuticoSingular;
-    @NotBlank @NotNull @Size(min = 8, max = 10)
+    @NotBlank
+    @NotNull
+    @Size(min = 8, max = 10)
     private Date dataPlanejamento;
     @NotBlank
     private String responsavelTerapeutico;
@@ -42,8 +42,6 @@ public class PlanoTerapeuticoSingular {
     @NotBlank
     private String imagemCarimboAssinaturaTerapeutas;
 
-    @OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "paciente_id")
     private Paciente paciente;
 
 }

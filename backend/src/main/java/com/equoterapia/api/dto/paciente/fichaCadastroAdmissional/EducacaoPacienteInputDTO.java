@@ -1,23 +1,22 @@
-package com.equoterapia.domain.model.paciente.fichaCadastroAdmissional;
+package com.equoterapia.api.dto.paciente.fichaCadastroAdmissional;
 
-import com.equoterapia.domain.enums.*;
+import com.equoterapia.domain.enums.ClasseDeEscola;
+import com.equoterapia.domain.enums.Periodo;
+import com.equoterapia.domain.enums.TipoDeInstituicaoEducacional;
+import com.equoterapia.domain.model.paciente.Paciente;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotBlank;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 
 @Getter
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
-@Entity
-public class EducacaoPaciente {
+@ToString
+public class EducacaoPacienteInputDTO {
 
     // Escolaridade do paciente
 
-    @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long idEducacaoPaciente;
     @NotBlank
     private String serieEscolar;
@@ -30,9 +29,8 @@ public class EducacaoPaciente {
     @Enumerated
     private Periodo periodo;
 
-    @OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "ficha_cadastro_admissional_id")
-    private FichaCadastroAdmissional fichaCadastroAdmissional;
+
+    private Paciente paciente;
 
 }
 

@@ -1,16 +1,14 @@
-package com.equoterapia.domain.model.paciente.fichaCadastroAdmissional;
+package com.equoterapia.api.dto.paciente.fichaCadastroAdmissional;
 
 import com.equoterapia.domain.enums.CorOuRaca;
 import com.equoterapia.domain.enums.Sexo;
 import com.equoterapia.domain.enums.TipoSanguineo;
+import com.equoterapia.domain.model.paciente.Paciente;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 import org.hibernate.validator.constraints.br.CPF;
 
 import java.util.Date;
@@ -19,12 +17,11 @@ import java.util.Date;
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
-@Entity
-public class DadosPessoais {
+@ToString
+public class DadosPessoaisInputDTO {
 
     // Dados Pessoais do Praticante
 
-    @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long idDadosPessoais;
     @NotBlank
     private String nomeCompleto;
@@ -63,9 +60,7 @@ public class DadosPessoais {
     @NotBlank @Size(min = 8, max = 9)
     private String CEP;
 
-    @OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "ficha_cadastro_admissional_id")
-    private FichaCadastroAdmissional fichaCadastroAdmissional;
+    private Paciente paciente;
 
 }
 

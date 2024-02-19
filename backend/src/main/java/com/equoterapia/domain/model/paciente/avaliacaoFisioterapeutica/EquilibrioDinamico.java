@@ -1,6 +1,7 @@
 package com.equoterapia.domain.model.paciente.avaliacaoFisioterapeutica;
 
 import com.equoterapia.domain.enums.EquilibrioEstatico;
+import com.equoterapia.domain.model.paciente.Paciente;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotBlank;
 import lombok.AllArgsConstructor;
@@ -19,26 +20,18 @@ public class EquilibrioDinamico {
 
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long idEquilibrioDinamico;
-    @Enumerated @NotBlank
     private EquilibrioEstatico engatinhar;
-    @NotBlank
     private String comentariosEngatinhar;
-    @Enumerated @NotBlank
     private EquilibrioEstatico marchaVoluntaria;
-    @NotBlank
     private String comentariosMarchaVoluntaria;
-    @Enumerated @NotBlank
     private EquilibrioEstatico saltarPesJuntos;
-    @NotBlank
     private String comentariosSaltarPesJuntos;
-    @Enumerated @NotBlank
     private EquilibrioEstatico correrDesviandoObstaculos;
-    @NotBlank
     private String comentariosCorrerDesviandoObstaculos;
 
     @OneToOne
-    @JoinColumn(name = "avaliacao_fisioterapeutica_id")
-    private AvaliacaoFisioterapeutica avaliacaoFisioterapeutica;
+    @JoinColumn(name = "paciente_id_fk")
+    private Paciente paciente;
 
 }
 

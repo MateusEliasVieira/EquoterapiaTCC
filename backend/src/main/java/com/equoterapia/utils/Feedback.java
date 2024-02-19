@@ -35,4 +35,7 @@ public class Feedback {
 
 
     public static final String ERRO_PADRAO = "Ops, aconteceu um erro interno do sistema!";
+
+    public static final String USUARIO_CAD_OK = "Novo usuário cadastrado com sucesso!";
+    public static final String ERRO_USUARIO_CAD = "Não foi possível cadastrar o novo usuário!";
 }

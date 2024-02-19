@@ -1,4 +1,4 @@
-package com.equoterapia.domain.model;
+package com.equoterapia.domain.model.usuario;
 
 import com.equoterapia.domain.enums.EstadoCivil;
 import com.equoterapia.domain.enums.Role;

@@ -1,2 +1,4 @@
-package com.equoterapia.domain.service.paciente.fichaCadastroAdmissional.impl;public class DadosPessoaisServiceImpl {
+package com.equoterapia.domain.service.paciente.fichaCadastroAdmissional.impl;
+
+public class DadosPessoaisServiceImpl {
 }
