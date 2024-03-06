@@ -31,7 +31,11 @@ public class DadosPessoais {
     private String nomeCompleto;
     private String diagnosticoClinico;
     private String queixaPrincipal; // Queixa principal (EX: dificuldade de concentração)
+<<<<<<< HEAD
     private String cid;
+=======
+    private String CID;
+>>>>>>> 617bd977d20bfecdc5ed1efeaeea2248f0b8d649
     private Date dataNascimento;
     private Double peso;
     private TipoSanguineo tipoSanguineo;
@@ -40,14 +44,22 @@ public class DadosPessoais {
     private Sexo sexo;
     private String naturalidade;
     private CorOuRaca corOuRaca;
+<<<<<<< HEAD
     @Column(unique = true)
     private String cpf;
     @Column(unique = true)
+=======
+    private String CPF;
+>>>>>>> 617bd977d20bfecdc5ed1efeaeea2248f0b8d649
     private String cartaoSUS;
     private String enderecoResidencial;
     private String bairro;
     private String cidade;
+<<<<<<< HEAD
     private String cep;
+=======
+    private String CEP;
+>>>>>>> 617bd977d20bfecdc5ed1efeaeea2248f0b8d649
 
     @OneToOne
     @JoinColumn(name = "paciente_id_fk")

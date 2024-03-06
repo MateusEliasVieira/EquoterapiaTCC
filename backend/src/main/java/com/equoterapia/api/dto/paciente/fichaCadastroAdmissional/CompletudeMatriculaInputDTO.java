@@ -1,6 +1,10 @@
 package com.equoterapia.api.dto.paciente.fichaCadastroAdmissional;
 
 import com.equoterapia.domain.model.paciente.Paciente;
+<<<<<<< HEAD
+=======
+import jakarta.persistence.*;
+>>>>>>> 617bd977d20bfecdc5ed1efeaeea2248f0b8d649
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
@@ -24,7 +28,10 @@ public class CompletudeMatriculaInputDTO {
     @NotBlank(message = ASSINATURA_IMAGEM)
     private String imagemAssinaturaResponsavel;
 
+<<<<<<< HEAD
     @NotNull
+=======
+>>>>>>> 617bd977d20bfecdc5ed1efeaeea2248f0b8d649
     private Paciente paciente;
 
 }

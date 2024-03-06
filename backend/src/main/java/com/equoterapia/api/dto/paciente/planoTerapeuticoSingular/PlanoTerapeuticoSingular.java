@@ -1,6 +1,10 @@
 package com.equoterapia.api.dto.paciente.planoTerapeuticoSingular;
 
 import com.equoterapia.api.dto.paciente.Paciente;
+<<<<<<< HEAD
+=======
+import jakarta.persistence.*;
+>>>>>>> 617bd977d20bfecdc5ed1efeaeea2248f0b8d649
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;

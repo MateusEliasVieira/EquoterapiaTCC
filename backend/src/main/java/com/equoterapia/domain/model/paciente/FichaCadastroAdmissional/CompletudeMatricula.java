@@ -26,7 +26,10 @@ public class CompletudeMatricula {
     @Id @GeneratedValue(strategy = GenerationType.AUTO)
     private Long idCompletudeMatricula;
     private Date dataCompletudeMatricula;
+<<<<<<< HEAD
     @Column(columnDefinition = "text")
+=======
+>>>>>>> 617bd977d20bfecdc5ed1efeaeea2248f0b8d649
     private String imagemAssinaturaResponsavel;
 
     @OneToOne

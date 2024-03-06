@@ -1,5 +1,6 @@
 package com.equoterapia.domain.service.paciente.fichaCadastroAdmissional.impl;
 
+<<<<<<< HEAD
 import com.equoterapia.domain.domainException.RegrasDeNegocioException;
 import com.equoterapia.domain.model.paciente.Paciente;
 import com.equoterapia.domain.model.paciente.fichaCadastroAdmissional.DadosPessoais;
@@ -55,4 +56,7 @@ public class DadosPessoaisServiceImpl implements DadosPessoaisService {
         return dadosPessoaisRepository.findAll();
     }
 
+=======
+public class DadosPessoaisServiceImpl {
+>>>>>>> 617bd977d20bfecdc5ed1efeaeea2248f0b8d649
 }

@@ -60,7 +60,10 @@ public class DadosPessoaisInputDTO {
     @NotBlank
     private String cep;
 
+<<<<<<< HEAD
     @NotNull
+=======
+>>>>>>> 617bd977d20bfecdc5ed1efeaeea2248f0b8d649
     private Paciente paciente;
 
 }

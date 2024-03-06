@@ -38,7 +38,11 @@ public class LoginController {
     @PostMapping("/logar")
     public ResponseEntity<?> enter(@RequestBody @Valid LoginInputDTO loginInputDTO, HttpServletRequest request) {
         Mensagem mensagem = new Mensagem();
+<<<<<<< HEAD
         System.out.println("Usuario = "+loginInputDTO.getNomeUsuario()+", Senha = "+loginInputDTO.getSenha());
+=======
+
+>>>>>>> 617bd977d20bfecdc5ed1efeaeea2248f0b8d649
         // creates a log of the login request
         Log.createSimpleLog(loginInputDTO, request);
 
