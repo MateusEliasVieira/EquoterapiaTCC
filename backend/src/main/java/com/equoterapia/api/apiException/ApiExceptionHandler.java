@@ -1,6 +1,6 @@
-package com.seminfo.api.apiException;
+package com.equoterapia.api.apiException;
 
-
+import com.equoterapia.utils.Feedback;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.MethodArgumentNotValidException;
@@ -22,27 +22,26 @@ public class ApiExceptionHandler {
     */
 
     @ExceptionHandler(MethodArgumentNotValidException.class)
-    public ResponseEntity<Problem> handleMethodArgumentNotValidException(MethodArgumentNotValidException ex) {
-
-        List<Field> list = new ArrayList<Field>();
+    public ResponseEntity<Problema> handleMethodArgumentNotValidException(MethodArgumentNotValidException ex) {
+        List<Campo> lista = new ArrayList<Campo>();
 
         ex.getBindingResult().getFieldErrors().forEach(error -> {
 
-            Field field = new Field();
-            field.setNameField(error.getField());
-            field.setMessage(error.getDefaultMessage());
+            Campo campo = new Campo();
+            campo.setNomeCampo(error.getField());
+            campo.setMensagem(error.getDefaultMessage());
 
-            list.add(field);
+           lista.add(campo);
 
         });
 
         var status = HttpStatus.BAD_REQUEST;
 
-        var problema = new Problem();
-        problema.setTitle(com.seminfo.utils.Field.DEFAULT_MESSAGE_EXCEPTION);
-        problema.setDate(OffsetDateTime.now());
+        var problema = new Problema();
+        problema.setTitulo(Feedback.ERRO_PADRAO);
+        problema.setData(OffsetDateTime.now());
         problema.setStatus(status.value());
-        problema.setList(list);
+        problema.setLista(lista);
 
         return ResponseEntity.badRequest().body(problema);
     }

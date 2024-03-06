@@ -18,6 +18,8 @@ public class Feedback {
     public static final String TIPO_ROLE = "Informe o tipo de acesso do funcionário!";
     public static final String VINCULO = "Informe o vínculo do funcionário!";
     public static final String POSSUI_FORMACAO = "Informe se o funcionário possui formação!";
+
+    public static final String LIGAR_PARA = "Informe para quem será a ligação!";
     public static final String TELEFONE_EMERGENCIA = "O número de telefone de emergência não pode estar em branco!";
     public static final String TELEFONE = "O número de telefone não pode estar em branco!";
     public static final String TELEFONE_TRABALHO = "O número de telefone do trabalho não pode estar em branco!";
@@ -35,4 +37,7 @@ public class Feedback {
 
 
     public static final String ERRO_PADRAO = "Ops, aconteceu um erro interno do sistema!";
+
+    public static final String USUARIO_CAD_OK = "Novo usuário cadastrado com sucesso!";
+    public static final String ERRO_USUARIO_CAD = "Não foi possível cadastrar o novo usuário!";
 }

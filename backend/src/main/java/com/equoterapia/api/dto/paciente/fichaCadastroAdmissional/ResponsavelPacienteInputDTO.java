@@ -1,11 +1,9 @@
-package com.equoterapia.domain.model.paciente.fichaCadastroAdmissional;
+package com.equoterapia.api.dto.paciente.fichaCadastroAdmissional;
 
+import com.equoterapia.domain.model.paciente.Paciente;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.*;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 
 import java.util.Date;
 
@@ -15,12 +13,11 @@ import static com.equoterapia.utils.Feedback.*;
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
-@Entity
-public class ResponsavelPaciente {
+@ToString
+public class ResponsavelPacienteInputDTO {
 
     // Responsável do paciente
 
-    @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long idResponsavelPaciente;
     @NotBlank(message = NOME_RESPONSAVEL)
     private String nomeResponsavel;
@@ -40,9 +37,7 @@ public class ResponsavelPaciente {
     private String telefoneTrabalho;
     private Double rendaFamiliar;
 
-    @OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "ficha_cadastro_admissional_id")
-    private FichaCadastroAdmissional fichaCadastroAdmissional;
+    private Paciente paciente;
 
 }
 

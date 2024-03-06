@@ -1,6 +1,6 @@
-package com.seminfo.security;
+package com.equoterapia.security;
 
-import com.seminfo.domain.enums.Roles;
+import com.equoterapia.domain.enums.Role;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -66,20 +66,39 @@ public class WebFilterConfiguration {
 
 		http.authorizeHttpRequests((auth) -> auth
 				// Login Controller
-				.requestMatchers(HttpMethod.POST, "/login/*").permitAll()
+				.requestMatchers(HttpMethod.POST, "/login/logar").permitAll()
+				.requestMatchers(HttpMethod.POST, "/usuario/salvar-novo-usuario").permitAll()
+				// Dados Pessoais
+				.requestMatchers(HttpMethod.POST, "/paciente/dados-pessoais/*").permitAll()
+				.requestMatchers(HttpMethod.PUT, "/paciente/dados-pessoais/*").permitAll()
+				.requestMatchers(HttpMethod.GET,"/paciente/dados-pessoais/buscar-dados-pessoais-por-id/*").permitAll()
+				.requestMatchers(HttpMethod.GET,"/paciente/dados-pessoais/buscar-dados-pessoais-dos-pacientes").permitAll()
+				// Completude Matricula
+				.requestMatchers(HttpMethod.POST, "/paciente/completude-matricula/salvar-completude-matricula").permitAll()
+				.requestMatchers(HttpMethod.PUT, "/paciente/completude-matricula/atualizar-completude-matricula").permitAll()
+				.requestMatchers(HttpMethod.GET,"/paciente/completude-matricula/buscar-completude-matricula-por-id/*").permitAll()
+				// Educação Paciente
+				.requestMatchers(HttpMethod.POST, "/paciente/educacao-paciente/salvar-educacao-paciente").permitAll()
+				.requestMatchers(HttpMethod.PUT, "/paciente/educacao-paciente/atualizar-educacao-paciente").permitAll()
+				.requestMatchers(HttpMethod.GET,"/paciente/educacao-paciente/buscar-educacao-paciente-por-id/*").permitAll()
+				// Emergencia
+				.requestMatchers(HttpMethod.POST, "/paciente/emergencia/salvar-emergencia").permitAll()
+				.requestMatchers(HttpMethod.PUT, "/paciente/emergencia/atualizar-emergencia").permitAll()
+				.requestMatchers(HttpMethod.GET,"/paciente/emergencia/buscar-emergencia-por-id/*").permitAll()
+
 				// Email Controller
-				.requestMatchers(HttpMethod.GET, "/email/confirmation/*").permitAll()
+				//.requestMatchers(HttpMethod.GET, "/email/confirmation/*").permitAll()
 				// Recover Account Controller
-				.requestMatchers(HttpMethod.GET, "/recover/recover-account/*").permitAll()
-				.requestMatchers(HttpMethod.POST, "/recover/new-password").permitAll()
+				//.requestMatchers(HttpMethod.GET, "/recover/recover-account/*").permitAll()
+				//.requestMatchers(HttpMethod.POST, "/recover/new-password").permitAll()
 				// User Controller
-				.requestMatchers(HttpMethod.POST, "/user/new").permitAll()
-				.requestMatchers(HttpMethod.GET, "/user/find/*").hasAuthority(Roles.ROLE_USER.name())
+				//.requestMatchers(HttpMethod.POST, "/user/new").permitAll()
+				//.requestMatchers(HttpMethod.GET, "/user/find/*").hasAuthority(Role.ROLE_USER.name())
 				// Post Controller
-				.requestMatchers(HttpMethod.POST, "/posts/new").hasAuthority(Roles.ROLE_ADMIN.name()) // Apenas usuários administradores podem postar
-				.requestMatchers(HttpMethod.GET, "/posts/all").hasAuthority(Roles.ROLE_USER.name())
-				.requestMatchers(HttpMethod.GET, "/posts/page/*").hasAuthority(Roles.ROLE_USER.name())
-				.requestMatchers(HttpMethod.GET, "/posts/read-post/*").hasAuthority(Roles.ROLE_USER.name())
+				//.requestMatchers(HttpMethod.POST, "/posts/new").hasAuthority(Role.ROLE_ADMIN.name()) // Apenas usuários administradores podem postar
+				//.requestMatchers(HttpMethod.GET, "/posts/all").hasAuthority(Role.ROLE_USER.name())
+				//.requestMatchers(HttpMethod.GET, "/posts/page/*").hasAuthority(Role.ROLE_USER.name())
+				//.requestMatchers(HttpMethod.GET, "/posts/read-post/*").hasAuthority(Role.ROLE_USER.name())
 				.anyRequest().authenticated());
 
 		http.addFilterBefore(this.interceptorFilter, UsernamePasswordAuthenticationFilter.class);

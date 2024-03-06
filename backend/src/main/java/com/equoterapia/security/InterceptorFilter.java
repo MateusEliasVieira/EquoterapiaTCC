@@ -1,11 +1,11 @@
-package com.seminfo.security;
+package com.equoterapia.security;
 
 import java.io.IOException;
 import java.util.Date;
 
 import com.auth0.jwt.interfaces.DecodedJWT;
-import com.seminfo.domain.service.UserService;
-import com.seminfo.security.jwt.JwtToken;
+import com.equoterapia.domain.service.usuario.UsuarioService;
+import com.equoterapia.security.jwt.JwtToken;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
@@ -23,7 +23,7 @@ import jakarta.servlet.http.HttpServletResponse;
 public class InterceptorFilter extends OncePerRequestFilter {
 
     @Autowired
-    private UserService service;
+    private UsuarioService service;
 
     @Override
     protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain filterChain)
@@ -52,6 +52,36 @@ public class InterceptorFilter extends OncePerRequestFilter {
 
     }
 
+//    public Authentication getAuthentication(HttpServletRequest request) throws Exception {
+//        var token = request.getHeader("Authorization");
+//
+//        if (token != null && !token.isEmpty()) {
+//            token = token.replace("Bearer ", "");
+//
+//            DecodedJWT decode = JwtToken.decodeTokenJWT(token);
+//
+//            if (decode != null) {
+//                // token verificado e descriptografado
+//                Date validate = decode.getExpiresAt();
+//                var username_subject = decode.getSubject();
+//
+//                if (validate.after(new Date(System.currentTimeMillis()))) {
+//                    UserDetails user = (UserDetails) service.findUsuarioByNomeUsuario(username_subject);
+//                    // caso a requisição tenha o cabeçalho correto, gero um "token interno"
+//                    UsernamePasswordAuthenticationToken authenticationToken = new UsernamePasswordAuthenticationToken(username_subject, null, user.getAuthorities());
+//                    return authenticationToken;
+//
+//                } else {
+//                    return null;
+//                }
+//            } else {
+//                return null; // Token inválido
+//            }
+//        } else {
+//            return null; // Token não fornecido
+//        }
+//    }
+
     public Authentication getAuthentication(HttpServletRequest request) throws Exception {
         var token = request.getHeader("Authorization");
 
@@ -66,7 +96,7 @@ public class InterceptorFilter extends OncePerRequestFilter {
                 var username_subject = decode.getSubject();
 
                 if (validate.after(new Date(System.currentTimeMillis()))) {
-                    UserDetails user = service.findUserByUsername(username_subject);
+                    UserDetails user = (UserDetails) service.findUsuarioByNomeUsuario(username_subject);
                     // caso a requisição tenha o cabeçalho correto, gero um "token interno"
                     UsernamePasswordAuthenticationToken authenticationToken = new UsernamePasswordAuthenticationToken(username_subject, null, user.getAuthorities());
                     return authenticationToken;

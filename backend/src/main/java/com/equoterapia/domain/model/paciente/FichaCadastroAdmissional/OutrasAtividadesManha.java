@@ -1,6 +1,6 @@
-package com.equoterapia.domain.model.paciente.FichaCadastroAdmissional;
+package com.equoterapia.domain.model.paciente.fichaCadastroAdmissional;
 
-import com.equoterapia.domain.model.paciente.FichaCadastroAdmissional.FichaCadastroAdmissional;
+import com.equoterapia.domain.model.paciente.Paciente;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -27,7 +27,7 @@ public class OutrasAtividadesManha {
     private String domingo;
 
     @OneToOne
-    @JoinColumn(name = "ficha_cadastro_admissional_id")
-    private FichaCadastroAdmissional fichaCadastroAdmissional;
+    @JoinColumn(name = "paciente_id_fk")
+    private Paciente paciente;
 
 }

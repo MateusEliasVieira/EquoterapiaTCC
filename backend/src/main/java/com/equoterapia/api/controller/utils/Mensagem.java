@@ -9,6 +9,6 @@ import lombok.Setter;
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
-public class Message {
-    private String message;
+public class Mensagem {
+    private String mensagem;
 }

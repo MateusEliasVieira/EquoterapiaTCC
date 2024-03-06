@@ -1,7 +1,7 @@
-package com.equoterapia.domain.repository;
+package com.equoterapia.domain.repository.usuario;
 
 import com.equoterapia.domain.enums.Role;
-import com.equoterapia.domain.model.Usuario;
+import com.equoterapia.domain.model.usuario.Usuario;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;

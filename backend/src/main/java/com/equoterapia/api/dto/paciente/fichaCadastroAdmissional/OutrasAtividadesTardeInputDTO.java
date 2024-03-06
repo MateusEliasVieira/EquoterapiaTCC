@@ -1,21 +1,18 @@
-package com.equoterapia.domain.model.paciente.fichaCadastroAdmissional;
+package com.equoterapia.api.dto.paciente.fichaCadastroAdmissional;
 
+import com.equoterapia.domain.model.paciente.Paciente;
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 
 @Getter
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
-@Entity
-public class OutrasAtividadesTarde {
+@ToString
+public class OutrasAtividadesTardeInputDTO {
 
     // Cronograma de atividade do paciente em outras instituições período vespertino
 
-    @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long idOutrasAtividadesTarde;
     private String segundaFeira;
     private String tercaFeira;
@@ -25,9 +22,7 @@ public class OutrasAtividadesTarde {
     private String sabado;
     private String domingo;
 
-    @OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "ficha_cadastro_admissional_id")
-    private FichaCadastroAdmissional fichaCadastroAdmissional;
+    private Paciente paciente;
 
 }
 

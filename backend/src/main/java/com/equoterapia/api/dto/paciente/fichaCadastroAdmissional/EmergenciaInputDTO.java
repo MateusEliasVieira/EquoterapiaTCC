@@ -1,13 +1,11 @@
-package com.equoterapia.domain.model.paciente.fichaCadastroAdmissional;
+package com.equoterapia.api.dto.paciente.fichaCadastroAdmissional;
 
+import com.equoterapia.domain.model.paciente.Paciente;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Pattern;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 
 import static com.equoterapia.utils.Feedback.*;
 
@@ -15,15 +13,13 @@ import static com.equoterapia.utils.Feedback.*;
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
-@Entity
-public class Emergencia {
+@ToString
+public class EmergenciaInputDTO {
 
     // Emergência
 
-    @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long idEmergencia;
-    @NotBlank(message = TELEFONE_EMERGENCIA)
-    @Pattern(regexp = "\\(\\d{2}\\)\\d{5}-\\d{4}", message = FORMATO_TELEFONE)
+    @NotBlank(message = LIGAR_PARA)
     private String ligarPara;
     @NotBlank(message = TELEFONE)
     @Pattern(regexp = "\\(\\d{2}\\)\\d{5}-\\d{4}", message = FORMATO_TELEFONE)
@@ -32,8 +28,7 @@ public class Emergencia {
     private Boolean possuiPlanoDeSaude;
     private String plano; // Caso tenha, qual é?
 
-    @OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "ficha_cadastro_admissional_id")
-    private FichaCadastroAdmissional fichaCadastroAdmissional;
+
+    private Paciente paciente;
 
 }

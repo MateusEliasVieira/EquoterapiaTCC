@@ -6,20 +6,20 @@ import { ENDPOINT_LOGIN } from "../../../global/Endpoint";
 
 export const Form = () => {
 
-    const [username, setUsername] = useState("");
-    const [password, setPassword] = useState("");
-
-    const validationFields = () => {
-
-    }
+    const [nomeUsuario, setNomeUsuario] = useState("");
+    const [senha, setSenha] = useState("");
 
     const sendForAPI = () => {
-        axios.post(ENDPOINT_LOGIN, { username: username, password: password })
+        axios.post(ENDPOINT_LOGIN, { nomeUsuario: nomeUsuario, senha: senha })
             .then((response) => {
+                alert("Deu bom")
                 console.log(response.data);
+
             })
             .catch((error) => {
-                console.error(error)
+                for(let i = 0; i < error.response.data.lista.length; i++){
+                    alert(error.response.data.lista[i].mensagem)
+                }
             })
     }
 
@@ -32,7 +32,7 @@ export const Form = () => {
                 label="Usuário"
                 variant="outlined"
                 fullWidth
-                onChange={event => { setUsername(event.target.value); }} />
+                onChange={event => { setNomeUsuario(event.target.value); }} />
 
             <TextField
                 id="textfield-password-div-form-login"
@@ -41,13 +41,15 @@ export const Form = () => {
                 variant="outlined"
                 type="password"
                 fullWidth
-                onChange={event => { setPassword(event.target.value); }} />
+                onChange={event => { setSenha(event.target.value); }} />
 
             <Button
                 id="button-div-form-login"
                 variant="contained"
                 size="large"
-                onClick={(event) => { event.preventDefault(); sendForAPI(); }}> Entrar </Button>
+                onClick={(event) => { event.preventDefault(); sendForAPI();}}> Entrar </Button>
+
+            <a id="id-link-recuperar-senha" href={"/recuperar-senha"}>Esqueceu a senha?</a>
 
         </div>
     )

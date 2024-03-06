@@ -1,5 +1,6 @@
 package com.equoterapia.domain.model.paciente.avaliacaoFisioterapeutica;
 
+import com.equoterapia.domain.model.paciente.Paciente;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotBlank;
 import lombok.AllArgsConstructor;
@@ -18,16 +19,13 @@ public class QuadroAtual {
 
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long idQuadroAtual;
-    @NotBlank
     private String locomocaoAtual;
-    @NotBlank
     private String restricoes;
-    @NotBlank
     private String deformidades;
 
     @OneToOne
-    @JoinColumn(name = "avaliacao_fisioterapia_id")
-    private AvaliacaoFisioterapeutica avaliacaoFisioterapeutica;
+    @JoinColumn(name = "paciente_id_fk")
+    private Paciente paciente;
 
 }
 

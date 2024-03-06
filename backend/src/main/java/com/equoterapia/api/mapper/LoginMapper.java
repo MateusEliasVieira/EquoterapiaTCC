@@ -1,28 +1,21 @@
-package com.seminfo.api.mapper;
+package com.equoterapia.api.mapper;
 
-import com.seminfo.api.dto.login.LoginInputDTO;
-import com.seminfo.api.dto.login.LoginInputGoogleDTO;
-import com.seminfo.api.dto.login.LoginOutputDTO;
-import com.seminfo.domain.model.User;
+import com.equoterapia.api.dto.login.LoginInputDTO;
+import com.equoterapia.api.dto.login.LoginOutputDTO;
+import com.equoterapia.domain.model.usuario.Usuario;
 import org.modelmapper.ModelMapper;
 
 public class LoginMapper
 {
 
-    public static User mapperLoginInputDTOToUser(LoginInputDTO loginInputDTO)
+    public static Usuario mapperLoginInputDTOParaUsuario(LoginInputDTO loginInputDTO)
     {
         ModelMapper mapper = new ModelMapper();
-        return mapper.map(loginInputDTO, User.class);
+        return mapper.map(loginInputDTO, Usuario.class);
     }
 
-    public static User mapperLoginInputGoogleDTOToUser(LoginInputGoogleDTO loginInputGoogleDTO)
-    {
+    public static LoginOutputDTO mapperUsuarioParaLoginOutputDTO(Usuario usuario){
         ModelMapper mapper = new ModelMapper();
-        return mapper.map(loginInputGoogleDTO, User.class);
-    }
-
-    public static LoginOutputDTO mapperUserToLoginOutputDTO(User user){
-        ModelMapper mapper = new ModelMapper();
-        return mapper.map(user,LoginOutputDTO.class);
+        return mapper.map(usuario,LoginOutputDTO.class);
     }
 }

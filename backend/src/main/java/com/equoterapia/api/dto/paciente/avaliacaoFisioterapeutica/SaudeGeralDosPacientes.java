@@ -1,23 +1,20 @@
-package com.equoterapia.domain.model.paciente.avaliacaoFisioterapeutica;
+package com.equoterapia.api.dto.paciente.avaliacaoFisioterapeutica;
 
+import com.equoterapia.domain.model.paciente.Paciente;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 
 @Getter
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
-@Entity
+@ToString
 public class SaudeGeralDosPacientes {
 
     // Saúde geral do paciente
 
-    @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long idSaudeGeralDosPacientes;
     @NotNull
     private Boolean convulsoesAnteriores;
@@ -62,9 +59,8 @@ public class SaudeGeralDosPacientes {
     @NotBlank
     private String consideracoesAlergias;
 
-    @OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "avaliacao_fisioterapeutica_id")
-    private AvaliacaoFisioterapeutica avaliacaoFisioterapeutica;
+    private Paciente paciente;
+
 
 }
 

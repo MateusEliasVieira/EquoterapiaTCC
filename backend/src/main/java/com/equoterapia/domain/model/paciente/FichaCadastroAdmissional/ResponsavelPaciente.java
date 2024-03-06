@@ -1,5 +1,6 @@
-package com.equoterapia.domain.model.paciente.FichaCadastroAdmissional;
+package com.equoterapia.domain.model.paciente.fichaCadastroAdmissional;
 
+import com.equoterapia.domain.model.paciente.Paciente;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.*;
 import lombok.AllArgsConstructor;
@@ -22,27 +23,18 @@ public class ResponsavelPaciente {
 
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long idResponsavelPaciente;
-    @NotBlank(message = NOME_RESPONSAVEL)
     private String nomeResponsavel;
-    @NotBlank
     private String grauParentesco; // Parentesco
-    @NotBlank
     private String profissao;
-    @NotBlank(message = TELEFONE)
-    @Pattern(regexp = "\\(\\d{2}\\)\\d{5}-\\d{4}", message = FORMATO_TELEFONE)
     private String telefone;
-    @NotBlank @NotNull @Size(min = 8, max = 10)
     private Date dataNascimento;
-    @Email @NotBlank(message = EMAIL)
     private String email;
-    @NotBlank(message = TELEFONE_TRABALHO)
-    @Pattern(regexp = "\\(\\d{2}\\)\\d{5}-\\d{4}", message = FORMATO_TELEFONE)
     private String telefoneTrabalho;
     private Double rendaFamiliar;
 
     @OneToOne
-    @JoinColumn(name = "ficha_cadastro_admissional_id")
-    private FichaCadastroAdmissional fichaCadastroAdmissional;
+    @JoinColumn(name = "paciente_id_fk")
+    private Paciente paciente;
 
 }
 

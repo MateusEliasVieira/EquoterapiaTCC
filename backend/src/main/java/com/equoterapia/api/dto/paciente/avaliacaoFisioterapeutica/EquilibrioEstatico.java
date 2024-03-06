@@ -1,24 +1,21 @@
-package com.equoterapia.domain.model.paciente.avaliacaoFisioterapeutica;
+package com.equoterapia.api.dto.paciente.avaliacaoFisioterapeutica;
 
+import com.equoterapia.domain.model.paciente.Paciente;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 
 @Getter
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
-@Entity
+@ToString
 public class EquilibrioEstatico {
 
     // Equilíbrio Estático
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+
     private Long idEquilibrioEstatico;
     @Enumerated
     @NotNull
@@ -66,8 +63,7 @@ public class EquilibrioEstatico {
     @NotBlank
     private String comentariosUmPeOlhosFechados;
 
-    @OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "avaliacao_fisioterapeutica_id")
-    private AvaliacaoFisioterapeutica avaliacaoFisioterapeutica;
+
+    private Paciente paciente;
 
 }

@@ -1,22 +1,19 @@
-package com.equoterapia.domain.model.paciente.avaliacaoPsicologica;
+package com.equoterapia.api.dto.paciente.avaliacaoPsicologica;
 
+import com.equoterapia.domain.model.paciente.Paciente;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotBlank;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 
 @Getter
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
-@Entity
+@ToString
 public class Rotina {
 
     // Rotina
 
-    @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long idRotina;
     @NotBlank
     private String brincadeiras;
@@ -27,9 +24,7 @@ public class Rotina {
     @NotBlank
     private String consideracoesSobreRotina;
 
-    @OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "avaliacao_psicologica_id")
-    private AvaliacaoPsicologica avaliacaoPsicologica;
+    private Paciente paciente;
 
 }
 

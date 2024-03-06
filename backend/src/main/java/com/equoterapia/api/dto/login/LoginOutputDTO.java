@@ -1,6 +1,6 @@
-package com.seminfo.api.dto.login;
+package com.equoterapia.api.dto.login;
 
-import com.seminfo.domain.enums.Roles;
+import com.equoterapia.domain.enums.Role;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 import lombok.*;
@@ -12,10 +12,10 @@ import lombok.*;
 public class LoginOutputDTO {
 
     @NotNull
-    private Long idUser;
+    private Long idUsuario;
     @NotBlank
     private String token;
     @NotNull
-    private Roles role;
+    private Role role;
 
 }
