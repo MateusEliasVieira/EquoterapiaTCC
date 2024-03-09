@@ -1,10 +1,7 @@
 package com.equoterapia.domain.model.paciente;
 
 import com.equoterapia.domain.model.usuario.Usuario;
-<<<<<<< HEAD
-=======
 
->>>>>>> 617bd977d20bfecdc5ed1efeaeea2248f0b8d649
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -20,15 +17,13 @@ public class Paciente {
     private Long idPaciente;
 
     // Avaliação Fisioterapeutica
-<<<<<<< HEAD
     @OneToOne(mappedBy = "paciente")
     private com.equoterapia.domain.model.paciente.avaliacaoFisioterapeutica.AvaliacaoFisioterapeutica avaliacaoFisioterapeutica;
     @OneToOne(mappedBy = "paciente")
     private com.equoterapia.domain.model.paciente.avaliacaoFisioterapeutica.CoordenacaoMotora coordenacaoMotora;
     @OneToOne(mappedBy = "paciente")
     private com.equoterapia.domain.model.paciente.avaliacaoFisioterapeutica.EquilibrioDinamico equilibrioDinamico;
-    @OneToOne(mappedBy = "paciente")
-=======
+    //@OneToOne(mappedBy = "paciente")
 
     @OneToOne(mappedBy = "paciente")
     private com.equoterapia.domain.model.paciente.avaliacaoFisioterapeutica.AvaliacaoFisioterapeutica avaliacaoFisioterapeutica;
@@ -37,7 +32,6 @@ public class Paciente {
     @OneToOne(mappedBy = "paciente")
     private com.equoterapia.domain.model.paciente.avaliacaoFisioterapeutica.EquilibrioDinamico equilibrioDinamico;
     @OneToOne(mappedBy = "paciente")
->>>>>>> 617bd977d20bfecdc5ed1efeaeea2248f0b8d649
     private com.equoterapia.domain.model.paciente.avaliacaoFisioterapeutica.EquilibrioEstatico equilibrioEstatico;
     @OneToOne(mappedBy = "paciente")
     private com.equoterapia.domain.model.paciente.avaliacaoFisioterapeutica.FormaDeComunicacao formaDeComunicacao;
@@ -53,7 +47,6 @@ public class Paciente {
     private com.equoterapia.domain.model.paciente.avaliacaoFisioterapeutica.SaudeGeralDosPacientes saudeGeralDosPacientes;
 
     // Avaliação Psicológica
-<<<<<<< HEAD
     @OneToOne(mappedBy = "paciente")
     private com.equoterapia.domain.model.paciente.avaliacaoPsicologica.Afetividade afetividade;
     @OneToOne(mappedBy = "paciente")
@@ -108,7 +101,7 @@ public class Paciente {
 //    @ManyToOne(cascade = CascadeType.ALL)
 //    @JoinColumn(name = "usuario_id")
 //    private Usuario usuario;
-=======
+
 
     // Ficha Cadastro Admissional
 
@@ -118,6 +111,5 @@ public class Paciente {
     @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "usuario_id")
     private Usuario usuario;
->>>>>>> 617bd977d20bfecdc5ed1efeaeea2248f0b8d649
 
 }
