@@ -13,7 +13,7 @@ import {
   CRow,
 } from '@coreui/react'
 import { IMaskMixin } from 'react-imask'
-const CadastroDeFuncionario = () => {
+const DadosPessoais = () => {
   const estados = [
     'Selecione',
     { label: 'Acre', value: 'AC' },
@@ -146,4 +146,4 @@ const CadastroDeFuncionario = () => {
   )
 }
 
-export default CadastroDeFuncionario
+export default DadosPessoais

@@ -1,117 +1,93 @@
 import React from 'react'
 import CIcon from '@coreui/icons-react'
-import { cilChartPie, cilDescription, cilNotes, cilUser, cilUserFollow } from '@coreui/icons'
-import { CNavGroup, CNavItem } from '@coreui/react'
+import {
+  cilAccountLogout,
+  cilChartPie,
+  cilClipboard, cilContact,
+  cilDescription,
+  cilMagnifyingGlass, cilSpeedometer, cilTrash,
+  cilUser,
+  cilUserFollow,
+  cilUserPlus
+} from '@coreui/icons'
+import {CNavGroup, CNavItem} from '@coreui/react'
+
 const _nav = [
   {
     component: CNavGroup,
     name: 'Praticantes',
     to: '/base',
-    icon: <CIcon icon={cilUserFollow} customClassName="nav-icon" />,
+    icon: <CIcon icon={cilUser} customClassName="nav-icon"/>,
     items: [
       {
         component: CNavItem,
-        name: 'Cadastrar',
-        to: '/forms/form-control',
+        name: 'Novo',
+        to: '/formulario/cadastrar-praticante',
+        icon:<CIcon icon={cilUserPlus} customClassName={"nav-icon"} />
       },
       {
         component: CNavItem,
         name: 'Atualizar',
-        to: '/base/breadcrumbs',
+        to: '/formulario/atualizar-praticante',
+        icon: <CIcon icon={cilContact} customClassName={"nav-icon"} />
       },
       {
         component: CNavItem,
         name: 'Pesquisar',
-        to: '/base/cards',
-      },
-      {
-        component: CNavItem,
-        name: 'Geral',
-        to: '/base/carousels',
-      },
+        to: '/formulario/pesquisar-praticante',
+        icon: <CIcon icon={cilMagnifyingGlass} customClassName={"nav-icon"}/>
+      }
     ],
+  },
+  {
+    component: CNavItem,
+    name: 'Relatórios',
+    to: '/relatorio-praticantes',
+    icon: <CIcon icon={cilClipboard} customClassName="nav-icon"/>,
+  },
+  {
+    component: CNavItem,
+    name: 'Gráficos',
+    to: '/graficos-praticantes',
+    icon: <CIcon icon={cilChartPie} customClassName="nav-icon"/>,
   },
   {
     component: CNavGroup,
     name: 'Funcionários',
     to: '/buttons',
-    icon: <CIcon icon={cilUser} customClassName="nav-icon" />,
+    icon: <CIcon icon={cilUser} customClassName="nav-icon"/>,
     items: [
       {
         component: CNavItem,
-        name: 'Cadastrar',
-        to: '/forms/form-control',
+        name: 'Novo',
+        to: '/formulario/cadastrar-funcionario',
+        icon:<CIcon icon={cilUserPlus} customClassName={"nav-icon"}/>
       },
       {
         component: CNavItem,
         name: 'Atualizar',
-        to: '/buttons/button-groups',
+        to: '/formulario/atualizar-funcionario',
+        icon: <CIcon icon={cilContact} customClassName={"nav-icon"} />
+      },
+      {
+        component: CNavItem,
+        name: 'Pesquisar',
+        to: '/formulario/pesquisar-funcionario',
+        icon: <CIcon icon={cilMagnifyingGlass} customClassName={"nav-icon"}/>
       },
       {
         component: CNavItem,
         name: 'Deletar',
-        to: '/buttons/dropdowns',
+        to: '/formulario/deletar-funcionario',
+        icon:<CIcon icon={cilTrash} customClassName={"nav-icon"} />
       },
     ],
-  },
-  {
-    component: CNavGroup,
-    name: 'Forms',
-    icon: <CIcon icon={cilNotes} customClassName="nav-icon" />,
-    items: [
-      {
-        component: CNavItem,
-        name: 'Form Control',
-        to: '/forms/form-control',
-      },
-      {
-        component: CNavItem,
-        name: 'Select',
-        to: '/forms/select',
-      },
-      {
-        component: CNavItem,
-        name: 'Checks & Radios',
-        to: '/forms/checks-radios',
-      },
-      {
-        component: CNavItem,
-        name: 'Range',
-        to: '/forms/range',
-      },
-      {
-        component: CNavItem,
-        name: 'Input Group',
-        to: '/forms/input-group',
-      },
-      {
-        component: CNavItem,
-        name: 'Floating Labels',
-        to: '/forms/floating-labels',
-      },
-      {
-        component: CNavItem,
-        name: 'Layout',
-        to: '/forms/layout',
-      },
-      {
-        component: CNavItem,
-        name: 'Validation',
-        to: '/forms/validation',
-      },
-    ],
-  },
-  {
-    component: CNavItem,
-    name: 'Gráficos',
-    to: '/charts',
-    icon: <CIcon icon={cilChartPie} customClassName="nav-icon" />,
   },
   {
     component: CNavItem,
     name: 'Sair',
-    href: 'https://coreui.io/react/docs/templates/installation/',
-    icon: <CIcon icon={cilDescription} customClassName="nav-icon" />,
+    href: '/sair',
+    icon: <CIcon icon={cilAccountLogout} customClassName="nav-icon"/>,
   },
 ]
 
