@@ -1,149 +1,265 @@
 import React from 'react'
+import {useState} from "react";
 import {
-  CButton,
-  CCard,
-  CCardBody,
-  CCardHeader,
-  CCol,
-  CForm,
-  CFormCheck,
-  CFormInput,
-  CFormLabel,
-  CFormSelect,
-  CRow,
+    CButton,
+    CCard,
+    CCardBody,
+    CCardHeader,
+    CCol,
+    CFormCheck,
+    CFormInput,
+    CFormLabel,
+    CFormSelect,
+    CRow,
 } from '@coreui/react'
-import { IMaskMixin } from 'react-imask'
+import {estados, tipoSanguineo, corOuRaca} from "../../../../constantes/Constantes"
+import axios from "axios";
+import {SALVAR_DADOS_PESSOAIS__POST} from "../../../../endpoints/paciente/fichaCadastroAdmissional/DadosPessoais";
+
 const DadosPessoais = () => {
-  const estados = [
-    'Selecione',
-    { label: 'Acre', value: 'AC' },
-    { label: 'Alagoas', value: 'AL' },
-    { label: 'Amapá', value: 'AP' },
-    { label: 'Amazonas', value: 'AM' },
-    { label: 'Bahia', value: 'BA' },
-    { label: 'Ceará', value: 'CE' },
-    { label: 'Distrito Federal', value: 'DF' },
-    { label: 'Espírito Santo', value: 'ES' },
-    { label: 'Goiás', value: 'GO' },
-    { label: 'Maranhão', value: 'MA' },
-    { label: 'Mato Grosso', value: 'MT' },
-    { label: 'Mato Grosso do Sul', value: 'MS' },
-    { label: 'Minas Gerais', value: 'MG' },
-    { label: 'Pará', value: 'PA' },
-    { label: 'Paraíba', value: 'PB' },
-    { label: 'Paraná', value: 'PR' },
-    { label: 'Pernambuco', value: 'PE' },
-    { label: 'Piauí', value: 'PI' },
-    { label: 'Rio de Janeiro', value: 'RJ' },
-    { label: 'Rio Grande do Norte', value: 'RN' },
-    { label: 'Rio Grande do Sul', value: 'RS' },
-    { label: 'Rondônia', value: 'RO' },
-    { label: 'Roraima', value: 'RR' },
-    { label: 'Santa Catarina', value: 'SC' },
-    { label: 'São Paulo', value: 'SP' },
-    { label: 'Sergipe', value: 'SE' },
-    { label: 'Tocantins', value: 'TO' },
-  ]
-  const tipoSanguineo = [
-    'Selecione',
-    { label: 'A +', value: 'A_POSITIVO' },
-    { label: 'A -', value: 'A_NEGATIVO' },
-    { label: 'B +', value: 'B_POSITIVO' },
-    { label: 'B -', value: 'B_NEGATIVO' },
-    { label: 'AB +', value: 'AB_POSITIVO' },
-    { label: 'AB -', value: 'AB_NEGATIVO' },
-    { label: 'O +', value: 'O_POSITIVO' },
-    { label: 'O -', value: 'O_NEGATIVO' },
-  ]
-  const CFormInputWithMask = IMaskMixin(({ inputRef, ...props }) => (
-    <CFormInput {...props} ref={inputRef} />
-  ))
-  return (
-    <CRow>
-      <CCol xs={12}>
-        <CCard className="mb-4">
-          <CCardHeader>
-            <strong>Dados Pessoais</strong>
-          </CCardHeader>
-          <CCardBody>
-            <CForm>
-              <div className="mb-3">
-                <CFormLabel htmlFor="exampleFormControlInput1">Nome Completo</CFormLabel>
-                <CFormInput type="text" />
-              </div>
-              <div className="mb-3">
-                <CFormLabel htmlFor="exampleFormControlInput1">Diagnóstico Clínico</CFormLabel>
-                <CFormInput type="text" />
-              </div>
-              <div className="mb-3">
-                <CFormLabel htmlFor="exampleFormControlInput1">Data de Nascimento</CFormLabel>
-                <CFormInput type="date" />
-              </div>
-              <div className="mb-3">
-                <CFormLabel htmlFor="exampleFormControlInput1">Peso</CFormLabel>
-                <CFormInput type="number" />
-              </div>
-              <div className="mb-3">
-                <CFormLabel htmlFor="exampleFormControlInput1">Tipo Sanguíneo</CFormLabel>
-                <CFormSelect options={tipoSanguineo} />
-              </div>
-              <div className="mb-3">
-                <CFormLabel htmlFor="exampleFormControlInput1">Fator RH</CFormLabel>
-                <CFormInput type="text" />
-              </div>
-              <div className="mb-3">
-                <CFormLabel htmlFor="exampleFormControlInput1">Sexo</CFormLabel>
-                <CFormCheck
-                  type="radio"
-                  name="sexo"
-                  id="flexRadioDefault1"
-                  label="Masculino"
-                  value={'MASCULINO'}
-                />
-                <CFormCheck
-                  type="radio"
-                  name="sexo"
-                  id="flexRadioDefault2"
-                  label="Feminino"
-                  value={'FEMININO'}
-                  defaultChecked
-                />
-              </div>
-              <div className="mb-3">
-                <CFormLabel htmlFor="exampleFormControlInput1">Naturalidade</CFormLabel>
-                <CFormSelect options={estados} />
-              </div>
-              <div className="mb-3">
-                <CFormLabel htmlFor="exampleFormControlInput1">CPF</CFormLabel>
-                <CFormInputWithMask mask="000.000.000-00" />
-              </div>
-              <div className="mb-3">
-                <CFormLabel htmlFor="exampleFormControlInput1">Nº Cartão do SUS</CFormLabel>
-                <CFormInputWithMask mask="000 0000 0000 0000" />
-              </div>
-              <div className="mb-3">
-                <CFormLabel htmlFor="exampleFormControlInput1">Endereço Residencial</CFormLabel>
-                <CFormInput type="text" />
-              </div>
-              <div className="mb-3">
-                <CFormLabel htmlFor="exampleFormControlInput1">Bairro</CFormLabel>
-                <CFormInput type="text" />
-              </div>
-              <div className="mb-3">
-                <CFormLabel htmlFor="exampleFormControlInput1">Cidade</CFormLabel>
-                <CFormInput type="text" />
-              </div>
-              <div className="mb-3">
-                <CFormLabel htmlFor="exampleFormControlInput1">CEP</CFormLabel>
-                <CFormInputWithMask mask="00000-000" />
-              </div>
-              <CButton color="primary">Salvar</CButton>
-            </CForm>
-          </CCardBody>
-        </CCard>
-      </CCol>
-    </CRow>
-  )
+
+    const [formData, setFormData] = useState(
+        {
+            nomeCompleto: "",
+            diagnosticoClinico: "",
+            queixaPrincipal: "",
+            cid: "",
+            dataNascimento: "",
+            peso: "",
+            tipoSanguineo: "",
+            fatorRH: "",
+            altura: "",
+            sexo: "",
+            naturalidade: "",
+            corOuRaca: "",
+            cpf: "",
+            cartaoSUS: "",
+            enderecoResidencial: "",
+            bairro: "",
+            cidade: "",
+            cep: ""
+        }
+    );
+
+    // Função para aplicar a máscara de CPF
+    const aplicaMascaraDeCPF = (value) => {
+        return value
+            .replace(/\D/g, '') // Remove caracteres não numéricos
+            .slice(0, 11) // Limita a 11 caracteres (incluindo os pontos e traço)
+            .replace(/(\d{3})(\d)/, '$1.$2') // Insere o primeiro ponto após o terceiro dígito
+            .replace(/(\d{3})(\d)/, '$1.$2') // Insere o segundo ponto após o sexto dígito
+            .replace(/(\d{3})(\d{1,2})$/, '$1-$2'); // Insere o traço após o nono dígito
+    };
+    // Função para aplicar a máscara cartão do SUS
+    const aplicaMascaraDeCartaoDoSUS = (value) => {
+        return value
+            .replace(/\D/g, '') // Remove caracteres não numéricos
+            .slice(0, 15) // Limita a 15 caracteres (número total de dígitos do cartão SUS)
+            .replace(/(\d{3})(\d{4})(\d{4})(\d{4})$/, '$1 $2 $3 $4'); // Adiciona espaços para separar os grupos de 4 dígitos
+    };
+    // Função para aplicar a máscara de CEP
+    const aplicaMascaraDeCEP = (value) => {
+        return value
+            .replace(/\D/g, '') // Remove caracteres não numéricos
+            .slice(0, 8) // Limita a 8 caracteres (incluindo o hífen)
+            .replace(/(\d{5})(\d{1,3})$/, '$1-$2'); // Insere o hífen após os primeiros 5 dígitos
+    };
+    const salvar = async () => {
+        try {
+            const response = await axios.post(
+                SALVAR_DADOS_PESSOAIS__POST,
+                JSON.stringify(formData),
+                {
+                    headers: {
+                        'Content-Type': 'application/json'
+                    }
+                }
+            );
+            if(response.data.paciente.idPaciente != null){
+              localStorage.setItem("idPraticanteSalvo",response.data.paciente.idPaciente)
+              alert('Dados salvos com sucesso');
+            }else{
+              alert("Houve um erro interno do sistema!")
+            }
+            console.log(response.data)
+        } catch (error) {
+          if ('lista' in error.response.data) {
+            for(let i = 0; i < error.response.data.lista.length; i++){
+              alert(error.response.data.lista[i].nomeCampo+", "+error.response.data.lista[i].mensagem)
+            }
+          } else {
+            alert(error.response.data.title)
+          }
+          console.log('Erro ao salvar os dados:', error);
+        }
+    };
+
+    return (
+        <CRow>
+            <CCol xs={12}>
+                <CCard className="mb-4">
+                    <CCardHeader>
+                        <strong>Dados Pessoais do Praticante</strong>
+                    </CCardHeader>
+                    <CCardBody>
+
+                        <div className="mb-3">
+                            <CFormLabel htmlFor="exampleFormControlInput1">CID</CFormLabel>
+                            <CFormInput type="text" value={formData.cid} onChange={(e) => {
+                                setFormData({...formData, cid: e.target.value})
+                            }}/>
+                        </div>
+                        <div className="mb-3">
+                            <CFormLabel htmlFor="exampleFormControlInput1">Nome Completo</CFormLabel>
+                            <CFormInput type="text" value={formData.nomeCompleto} onChange={(e) => {
+                                setFormData({...formData, nomeCompleto: e.target.value})
+                            }}/>
+                        </div>
+                        <div className="mb-3">
+                            <CFormLabel htmlFor="exampleFormControlInput1">Diagnóstico Clínico</CFormLabel>
+                            <CFormInput type="text" value={formData.diagnosticoClinico} onChange={(e) => {
+                                setFormData({...formData, diagnosticoClinico: e.target.value})
+                            }}/>
+                        </div>
+                        <div className="mb-3">
+                            <CFormLabel htmlFor="exampleFormControlInput1">Queixa Principal</CFormLabel>
+                            <CFormInput type="text" value={formData.queixaPrincipal} onChange={(e) => {
+                                setFormData({...formData, queixaPrincipal: e.target.value})
+                            }}/>
+                        </div>
+                        <div className="mb-3">
+                            <CFormLabel htmlFor="exampleFormControlInput1">Data de Nascimento</CFormLabel>
+                            <CFormInput type="date" value={formData.dataNascimento} onChange={(e) => {
+                                setFormData({...formData, dataNascimento: e.target.value})
+                            }}/>
+                        </div>
+                        <div className="mb-3">
+                            <CFormLabel htmlFor="exampleFormControlInput1">Peso</CFormLabel>
+                            <CFormInput type="number" value={formData.peso} onChange={(e) => {
+                                setFormData({...formData, peso: e.target.value})
+                            }}/>
+                        </div>
+                        <div className="mb-3">
+                            <CFormLabel htmlFor="exampleFormControlInput1">Altura</CFormLabel>
+                            <CFormInput type="number" value={formData.altura} onChange={(e) => {
+                                setFormData({...formData, altura: e.target.value})
+                            }}/>
+                        </div>
+                        <div className="mb-3">
+                            <CFormLabel htmlFor="exampleFormControlInput1">Tipo Sanguíneo</CFormLabel>
+                            <CFormSelect options={tipoSanguineo} value={formData.tipoSanguineo} onChange={(e) => {
+                                setFormData({...formData, tipoSanguineo: e.target.value})
+                            }}/>
+                        </div>
+                        <div className="mb-3">
+                            <CFormLabel htmlFor="exampleFormControlInput1">Cor/Raça</CFormLabel>
+                            <CFormSelect options={corOuRaca} value={formData.corOuRaca} onChange={(e) => {
+                                setFormData({...formData, corOuRaca: e.target.value})
+                            }}/>
+                        </div>
+                        <div className="mb-3">
+                            <CFormLabel htmlFor="exampleFormControlInput1">Fator RH</CFormLabel>
+                            <CFormInput type="text" value={formData.fatorRH} onChange={(e) => {
+                                setFormData({...formData, fatorRH: e.target.value})
+                            }}/>
+                        </div>
+                        <div className="mb-3">
+                            <CFormLabel htmlFor="flexRadioDefault1">Sexo</CFormLabel>
+                            <CFormCheck
+                                type="radio"
+                                id="flexRadioDefault1"
+                                name="sexo"
+                                label="Masculino"
+                                value="MASCULINO"
+                                checked={formData.sexo === 'MASCULINO'}
+                                onChange={(e) => {
+                                    if (e.target.checked) {
+                                        setFormData({...formData, sexo: e.target.value});
+                                    }
+                                }}
+                            />
+                            <CFormCheck
+                                type="radio"
+                                id="flexRadioDefault2"
+                                name="sexo"
+                                label="Feminino"
+                                value="FEMININO"
+                                checked={formData.sexo === 'FEMININO'}
+                                onChange={(e) => {
+                                    if (e.target.checked) {
+                                        setFormData({...formData, sexo: e.target.value});
+                                    }
+                                }}
+                            />
+                        </div>
+                        <div className="mb-3">
+                            <CFormLabel htmlFor="exampleFormControlInput1">Naturalidade</CFormLabel>
+                            <CFormSelect options={estados} value={formData.naturalidade} onChange={(e) => {
+                                setFormData({...formData, naturalidade: e.target.value})
+                            }}/>
+                        </div>
+                        <div className="mb-3">
+                            <CFormLabel htmlFor="exampleFormControlInput1">CPF</CFormLabel>
+                            <CFormInput
+                                type="text"
+                                name="cpf"
+                                value={formData.cpf}
+                                onChange={(e) => {
+                                    const maskedValue = aplicaMascaraDeCPF(e.target.value);
+                                    setFormData({...formData, cpf: maskedValue});
+                                }}
+                            />
+                        </div>
+                        <div className="mb-3">
+                            <CFormLabel htmlFor="exampleFormControlInput1">Nº Cartão do SUS</CFormLabel>
+                            <CFormInput
+                                type="text"
+                                name="sus"
+                                value={formData.cartaoSUS}
+                                onChange={(e) => {
+                                    const maskedValue = aplicaMascaraDeCartaoDoSUS(e.target.value);
+                                    setFormData({...formData, cartaoSUS: maskedValue});
+                                }}
+                            />
+                        </div>
+                        <div className="mb-3">
+                            <CFormLabel htmlFor="exampleFormControlInput1">Endereço Residencial</CFormLabel>
+                            <CFormInput type="text" value={formData.enderecoResidencial} onChange={(e) => {
+                                setFormData({...formData, enderecoResidencial: e.target.value})
+                            }}/>
+                        </div>
+                        <div className="mb-3">
+                            <CFormLabel htmlFor="exampleFormControlInput1">Bairro</CFormLabel>
+                            <CFormInput type="text" value={formData.bairro} onChange={(e) => {
+                                setFormData({...formData, bairro: e.target.value})
+                            }}/>
+                        </div>
+                        <div className="mb-3">
+                            <CFormLabel htmlFor="exampleFormControlInput1">Cidade</CFormLabel>
+                            <CFormInput type="text" value={formData.cidade} onChange={(e) => {
+                                setFormData({...formData, cidade: e.target.value})
+                            }}/>
+                        </div>
+                        <div className="mb-3">
+                            <CFormLabel htmlFor="exampleFormControlInput1">CEP</CFormLabel>
+                            <CFormInput value={formData.cep}
+                                        onChange={(e) => {
+                                            const maskedValue = aplicaMascaraDeCEP(e.target.value);
+                                            setFormData({...formData, cep: maskedValue});
+                                        }}/>
+                        </div>
+                        <CButton color="primary"
+                                 onClick={
+                                     () => {
+                                         salvar()
+                                     }
+                                 }
+                        >Salvar</CButton>
+                    </CCardBody>
+                </CCard>
+            </CCol>
+        </CRow>
+    )
 }
 
 export default DadosPessoais

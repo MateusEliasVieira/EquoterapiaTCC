@@ -1,5 +1,6 @@
 package com.equoterapia.api.dto.paciente.fichaCadastroAdmissional;
 
+import com.equoterapia.api.dto.paciente.PacienteIdDTO;
 import com.equoterapia.domain.model.paciente.Paciente;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.*;
@@ -37,7 +38,7 @@ public class ResponsavelPacienteInputDTO {
     private String telefoneTrabalho;
     private Double rendaFamiliar;
 
-    private Paciente paciente;
+    private PacienteIdDTO paciente;
 
 }
 

@@ -9,7 +9,7 @@ import {
   CChartRadar,
 } from '@coreui/react-chartjs'
 
-const Charts = () => {
+const Grafico = () => {
   const random = () => Math.round(Math.random() * 100)
 
   return (
@@ -165,4 +165,4 @@ const Charts = () => {
   )
 }
 
-export default Charts
+export default Grafico

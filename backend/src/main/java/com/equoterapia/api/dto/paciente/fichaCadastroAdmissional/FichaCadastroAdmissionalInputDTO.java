@@ -1,6 +1,7 @@
 package com.equoterapia.api.dto.paciente.fichaCadastroAdmissional;
 
 import com.equoterapia.api.dto.paciente.Paciente;
+import com.equoterapia.api.dto.paciente.PacienteIdDTO;
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -17,6 +18,6 @@ public class FichaCadastroAdmissionalInputDTO {
     private Long idFichaCadastroAdmissional;
     private Date dataAvaliacao; // Data da avaliação
 
-    private Paciente paciente;
+    private PacienteIdDTO paciente;
 }
 

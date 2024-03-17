@@ -24,10 +24,7 @@ public class Emergencia {
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long idEmergencia;
     private String ligarPara;
-<<<<<<< HEAD
     @Column(unique = true)
-=======
->>>>>>> 617bd977d20bfecdc5ed1efeaeea2248f0b8d649
     private String telefone;
     private Boolean possuiPlanoDeSaude;
     private String plano; // Caso tenha, qual é?

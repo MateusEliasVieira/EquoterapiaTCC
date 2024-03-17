@@ -1,13 +1,12 @@
 package com.equoterapia.api.dto.paciente.fichaCadastroAdmissional;
 
+import com.equoterapia.api.dto.paciente.PacienteIdDTO;
 import com.equoterapia.domain.enums.CorOuRaca;
 import com.equoterapia.domain.enums.Sexo;
 import com.equoterapia.domain.enums.TipoSanguineo;
-import com.equoterapia.domain.model.paciente.Paciente;
 import jakarta.persistence.Enumerated;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
-import jakarta.validation.constraints.Size;
 import lombok.*;
 import org.hibernate.validator.constraints.br.CPF;
 
@@ -60,6 +59,8 @@ public class DadosPessoaisOutputDTO {
     @NotBlank
     private String cep;
 
+    @NotNull
+    private PacienteIdDTO paciente;
 
 }
 

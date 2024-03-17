@@ -66,7 +66,7 @@ public class WebFilterConfiguration {
 
 		http.authorizeHttpRequests((auth) -> auth
 				// Login Controller
-<<<<<<< HEAD
+
 				.requestMatchers(HttpMethod.POST, "/login/logar").permitAll()
 				.requestMatchers(HttpMethod.POST, "/usuario/salvar-novo-usuario").permitAll()
 				// Dados Pessoais
@@ -87,11 +87,11 @@ public class WebFilterConfiguration {
 				.requestMatchers(HttpMethod.PUT, "/paciente/emergencia/atualizar-emergencia").permitAll()
 				.requestMatchers(HttpMethod.GET,"/paciente/emergencia/buscar-emergencia-por-id/*").permitAll()
 
-=======
+
 				.requestMatchers(HttpMethod.POST, "/login/*").permitAll()
 				.requestMatchers(HttpMethod.POST, "/usuario/salvar-novo-usuario").permitAll()
 				.requestMatchers(HttpMethod.POST, "/paciente/salvar-novo-paciente").permitAll()
->>>>>>> 617bd977d20bfecdc5ed1efeaeea2248f0b8d649
+
 				// Email Controller
 				//.requestMatchers(HttpMethod.GET, "/email/confirmation/*").permitAll()
 				// Recover Account Controller

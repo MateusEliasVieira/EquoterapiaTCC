@@ -2,11 +2,9 @@ package com.equoterapia.api.controller.usuario;
 
 import com.equoterapia.api.controller.utils.Mensagem;
 import com.equoterapia.api.dto.usuario.UsuarioInputDTO;
-<<<<<<< HEAD
+
 import com.equoterapia.api.mapper.usuario.UsuarioMapper;
-=======
-import com.equoterapia.api.mapper.UsuarioMapper;
->>>>>>> 617bd977d20bfecdc5ed1efeaeea2248f0b8d649
+
 import com.equoterapia.domain.service.usuario.UsuarioService;
 import com.equoterapia.utils.Feedback;
 import jakarta.validation.Valid;

@@ -23,14 +23,6 @@ public class Paciente {
     private com.equoterapia.domain.model.paciente.avaliacaoFisioterapeutica.CoordenacaoMotora coordenacaoMotora;
     @OneToOne(mappedBy = "paciente")
     private com.equoterapia.domain.model.paciente.avaliacaoFisioterapeutica.EquilibrioDinamico equilibrioDinamico;
-    //@OneToOne(mappedBy = "paciente")
-
-    @OneToOne(mappedBy = "paciente")
-    private com.equoterapia.domain.model.paciente.avaliacaoFisioterapeutica.AvaliacaoFisioterapeutica avaliacaoFisioterapeutica;
-    @OneToOne(mappedBy = "paciente")
-    private com.equoterapia.domain.model.paciente.avaliacaoFisioterapeutica.CoordenacaoMotora coordenacaoMotora;
-    @OneToOne(mappedBy = "paciente")
-    private com.equoterapia.domain.model.paciente.avaliacaoFisioterapeutica.EquilibrioDinamico equilibrioDinamico;
     @OneToOne(mappedBy = "paciente")
     private com.equoterapia.domain.model.paciente.avaliacaoFisioterapeutica.EquilibrioEstatico equilibrioEstatico;
     @OneToOne(mappedBy = "paciente")
