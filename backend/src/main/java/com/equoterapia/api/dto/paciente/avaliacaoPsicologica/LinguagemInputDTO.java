@@ -23,9 +23,9 @@ public class Linguagem {
     @Enumerated @NotNull
     private PreencherLegenda gritos;
     @Enumerated @NotNull
-    private PreencherLegenda mímicaFacial;
+    private PreencherLegenda mimicaFacial;
     @Enumerated @NotNull
-    private PreencherLegenda monossílabos;
+    private PreencherLegenda monossilabos;
     @Enumerated @NotNull
     private PreencherLegenda frasesCurtas;
     @Enumerated @NotNull

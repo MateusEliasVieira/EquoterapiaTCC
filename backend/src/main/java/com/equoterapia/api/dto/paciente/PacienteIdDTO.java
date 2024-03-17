@@ -7,6 +7,6 @@ import lombok.*;
 @AllArgsConstructor
 @NoArgsConstructor
 @ToString
-public class PacienteIdOutputDTO {
+public class PacienteIdDTO {
     private Long idPaciente;
 }

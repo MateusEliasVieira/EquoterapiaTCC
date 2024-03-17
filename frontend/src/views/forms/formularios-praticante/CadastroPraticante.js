@@ -4,6 +4,12 @@ import ResponsavelPeloPraticante from "./fichaCadastroAdmissional/ResponsavelPel
 import OutrasAtividadesManha from "./fichaCadastroAdmissional/OutrasAtividadesManha";
 import OutrasAtividadesTarde from "./fichaCadastroAdmissional/OutrasAtividadesTarde";
 import Emergencia from "./fichaCadastroAdmissional/Emergencia";
+import CompletudeMatricula from "./fichaCadastroAdmissional/CompletudeMatricula";
+import SobreACrianca from "./avaliacaoPsicologica/SobreACrianca";
+import Saude from "./avaliacaoPsicologica/Saude";
+import Rotina from "./avaliacaoPsicologica/Rotina";
+import CuidadosPessoais from "./avaliacaoPsicologica/CuidadosPessoais";
+import TracoDePersonalidade from "./avaliacaoPsicologica/TracoDePersonalidade";
 
 const CadastroPraticante = () => {
     return (
@@ -14,6 +20,12 @@ const CadastroPraticante = () => {
             <OutrasAtividadesManha/>
             <OutrasAtividadesTarde/>
             <Emergencia/>
+            <CompletudeMatricula/>
+            <SobreACrianca/>
+            <Saude/>
+            <Rotina/>
+            <CuidadosPessoais/>
+            <TracoDePersonalidade/>
         </div>
     )
 }

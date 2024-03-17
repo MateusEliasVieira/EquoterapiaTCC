@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react';
 import {
   CButton,
   CCard,
@@ -6,144 +6,233 @@ import {
   CCardHeader,
   CCol,
   CForm,
-  CFormCheck,
-  CFormInput,
   CFormLabel,
-  CFormSelect,
   CRow,
-} from '@coreui/react'
-import { IMaskMixin } from 'react-imask'
-const CadastroDeFuncionario = () => {
-  const estados = [
-    'Selecione',
-    { label: 'Acre', value: 'AC' },
-    { label: 'Alagoas', value: 'AL' },
-    { label: 'Amapá', value: 'AP' },
-    { label: 'Amazonas', value: 'AM' },
-    { label: 'Bahia', value: 'BA' },
-    { label: 'Ceará', value: 'CE' },
-    { label: 'Distrito Federal', value: 'DF' },
-    { label: 'Espírito Santo', value: 'ES' },
-    { label: 'Goiás', value: 'GO' },
-    { label: 'Maranhão', value: 'MA' },
-    { label: 'Mato Grosso', value: 'MT' },
-    { label: 'Mato Grosso do Sul', value: 'MS' },
-    { label: 'Minas Gerais', value: 'MG' },
-    { label: 'Pará', value: 'PA' },
-    { label: 'Paraíba', value: 'PB' },
-    { label: 'Paraná', value: 'PR' },
-    { label: 'Pernambuco', value: 'PE' },
-    { label: 'Piauí', value: 'PI' },
-    { label: 'Rio de Janeiro', value: 'RJ' },
-    { label: 'Rio Grande do Norte', value: 'RN' },
-    { label: 'Rio Grande do Sul', value: 'RS' },
-    { label: 'Rondônia', value: 'RO' },
-    { label: 'Roraima', value: 'RR' },
-    { label: 'Santa Catarina', value: 'SC' },
-    { label: 'São Paulo', value: 'SP' },
-    { label: 'Sergipe', value: 'SE' },
-    { label: 'Tocantins', value: 'TO' },
-  ]
-  const tipoSanguineo = [
-    'Selecione',
-    { label: 'A +', value: 'A_POSITIVO' },
-    { label: 'A -', value: 'A_NEGATIVO' },
-    { label: 'B +', value: 'B_POSITIVO' },
-    { label: 'B -', value: 'B_NEGATIVO' },
-    { label: 'AB +', value: 'AB_POSITIVO' },
-    { label: 'AB -', value: 'AB_NEGATIVO' },
-    { label: 'O +', value: 'O_POSITIVO' },
-    { label: 'O -', value: 'O_NEGATIVO' },
-  ]
-  const CFormInputWithMask = IMaskMixin(({ inputRef, ...props }) => (
-    <CFormInput {...props} ref={inputRef} />
-  ))
-  return (
-    <CRow>
-      <CCol xs={12}>
-        <CCard className="mb-4">
-          <CCardHeader>
-            <strong>Dados Pessoais</strong>
-          </CCardHeader>
-          <CCardBody>
-            <CForm>
-              <div className="mb-3">
-                <CFormLabel htmlFor="exampleFormControlInput1">Nome Completo</CFormLabel>
-                <CFormInput type="text" />
-              </div>
-              <div className="mb-3">
-                <CFormLabel htmlFor="exampleFormControlInput1">Diagnóstico Clínico</CFormLabel>
-                <CFormInput type="text" />
-              </div>
-              <div className="mb-3">
-                <CFormLabel htmlFor="exampleFormControlInput1">Data de Nascimento</CFormLabel>
-                <CFormInput type="date" />
-              </div>
-              <div className="mb-3">
-                <CFormLabel htmlFor="exampleFormControlInput1">Peso</CFormLabel>
-                <CFormInput type="number" />
-              </div>
-              <div className="mb-3">
-                <CFormLabel htmlFor="exampleFormControlInput1">Tipo Sanguíneo</CFormLabel>
-                <CFormSelect options={tipoSanguineo} />
-              </div>
-              <div className="mb-3">
-                <CFormLabel htmlFor="exampleFormControlInput1">Fator RH</CFormLabel>
-                <CFormInput type="text" />
-              </div>
-              <div className="mb-3">
-                <CFormLabel htmlFor="exampleFormControlInput1">Sexo</CFormLabel>
-                <CFormCheck
-                  type="radio"
-                  name="sexo"
-                  id="flexRadioDefault1"
-                  label="Masculino"
-                  value={'MASCULINO'}
-                />
-                <CFormCheck
-                  type="radio"
-                  name="sexo"
-                  id="flexRadioDefault2"
-                  label="Feminino"
-                  value={'FEMININO'}
-                  defaultChecked
-                />
-              </div>
-              <div className="mb-3">
-                <CFormLabel htmlFor="exampleFormControlInput1">Naturalidade</CFormLabel>
-                <CFormSelect options={estados} />
-              </div>
-              <div className="mb-3">
-                <CFormLabel htmlFor="exampleFormControlInput1">CPF</CFormLabel>
-                <CFormInputWithMask mask="000.000.000-00" />
-              </div>
-              <div className="mb-3">
-                <CFormLabel htmlFor="exampleFormControlInput1">Nº Cartão do SUS</CFormLabel>
-                <CFormInputWithMask mask="000 0000 0000 0000" />
-              </div>
-              <div className="mb-3">
-                <CFormLabel htmlFor="exampleFormControlInput1">Endereço Residencial</CFormLabel>
-                <CFormInput type="text" />
-              </div>
-              <div className="mb-3">
-                <CFormLabel htmlFor="exampleFormControlInput1">Bairro</CFormLabel>
-                <CFormInput type="text" />
-              </div>
-              <div className="mb-3">
-                <CFormLabel htmlFor="exampleFormControlInput1">Cidade</CFormLabel>
-                <CFormInput type="text" />
-              </div>
-              <div className="mb-3">
-                <CFormLabel htmlFor="exampleFormControlInput1">CEP</CFormLabel>
-                <CFormInputWithMask mask="00000-000" />
-              </div>
-              <CButton color="primary">Salvar</CButton>
-            </CForm>
-          </CCardBody>
-        </CCard>
-      </CCol>
-    </CRow>
-  )
-}
+  CFormInput,
+  CFormSelect,
+} from '@coreui/react';
+import axios from 'axios';
 
-export default CadastroDeFuncionario
+const CadastroDeFuncionario = () => {
+  const [formData, setFormData] = useState({
+    nome: '',
+    foto: '',
+    dataNascimento: '',
+    cpf: '',
+    estadoCivil: '',
+    telefone: '',
+    email: '',
+    nomeUsuario: '',
+    senha: '',
+    detalhesFormacao: '',
+    cidade: '',
+    bairro: '',
+    logradouro: '',
+    role: '',
+    vinculo: '',
+    possuiFormacao: false,
+  });
+
+  const salvar = async () => {
+    const dados = {
+      ...formData,
+    };
+
+    try {
+      const response = await axios.post(
+          SEU_ENDPOINT_DE_SALVAR_AQUI,
+          JSON.stringify(dados),
+          {
+            headers: {
+              'Content-Type': 'application/json',
+            },
+          }
+      );
+      console.log('Dados do usuário salvos com sucesso:', response.data);
+    } catch (error) {
+      console.log('Erro ao salvar os dados do usuário:', error);
+    }
+  };
+
+  return (
+      <CRow>
+        <CCol xs={12}>
+          <CCard className="mb-4">
+            <CCardHeader>
+              <strong>Registro de Usuário</strong>
+            </CCardHeader>
+            <CCardBody>
+              <CForm>
+                <div className="mb-3">
+                  <CFormLabel htmlFor="nome">Nome</CFormLabel>
+                  <CFormInput
+                      id="nome"
+                      value={formData.nome}
+                      onChange={(e) => setFormData({ ...formData, nome: e.target.value })}
+                  />
+                </div>
+
+                <div className="mb-3">
+                  <CFormLabel htmlFor="foto">Foto</CFormLabel>
+                  <CFormInput
+                      id="foto"
+                      type="file"
+                      onChange={(e) => setFormData({ ...formData, foto: e.target.value })}
+                  />
+                </div>
+
+                <div className="mb-3">
+                  <CFormLabel htmlFor="dataNascimento">Data de Nascimento</CFormLabel>
+                  <CFormInput
+                      id="dataNascimento"
+                      type="date"
+                      value={formData.dataNascimento}
+                      onChange={(e) => setFormData({ ...formData, dataNascimento: e.target.value })}
+                  />
+                </div>
+
+                <div className="mb-3">
+                  <CFormLabel htmlFor="cpf">CPF</CFormLabel>
+                  <CFormInput
+                      id="cpf"
+                      value={formData.cpf}
+                      onChange={(e) => setFormData({ ...formData, cpf: e.target.value })}
+                  />
+                </div>
+
+                <div className="mb-3">
+                  <CFormLabel htmlFor="estadoCivil">Estado Civil</CFormLabel>
+                  <CFormSelect
+                      id="estadoCivil"
+                      value={formData.estadoCivil}
+                      onChange={(e) => setFormData({ ...formData, estadoCivil: e.target.value })}
+                  >
+                    <option value="">Selecionar</option>
+                    {/* Opções para Estado Civil */}
+                  </CFormSelect>
+                </div>
+
+                <div className="mb-3">
+                  <CFormLabel htmlFor="telefone">Telefone</CFormLabel>
+                  <CFormInput
+                      id="telefone"
+                      value={formData.telefone}
+                      onChange={(e) => setFormData({ ...formData, telefone: e.target.value })}
+                  />
+                </div>
+
+                <div className="mb-3">
+                  <CFormLabel htmlFor="email">Email</CFormLabel>
+                  <CFormInput
+                      id="email"
+                      type="email"
+                      value={formData.email}
+                      onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+                  />
+                </div>
+
+                <div className="mb-3">
+                  <CFormLabel htmlFor="nomeUsuario">Nome de Usuário</CFormLabel>
+                  <CFormInput
+                      id="nomeUsuario"
+                      value={formData.nomeUsuario}
+                      onChange={(e) => setFormData({ ...formData, nomeUsuario: e.target.value })}
+                  />
+                </div>
+
+                <div className="mb-3">
+                  <CFormLabel htmlFor="senha">Senha</CFormLabel>
+                  <CFormInput
+                      id="senha"
+                      type="password"
+                      value={formData.senha}
+                      onChange={(e) => setFormData({ ...formData, senha: e.target.value })}
+                  />
+                </div>
+
+                <div className="mb-3">
+                  <CFormLabel htmlFor="detalhesFormacao">Detalhes da Formação</CFormLabel>
+                  <CFormInput
+                      id="detalhesFormacao"
+                      type="text"
+                      value={formData.detalhesFormacao}
+                      onChange={(e) => setFormData({ ...formData, detalhesFormacao: e.target.value })}
+                  />
+                </div>
+
+                <div className="mb-3">
+                  <CFormLabel htmlFor="cidade">Cidade</CFormLabel>
+                  <CFormInput
+                      id="cidade"
+                      value={formData.cidade}
+                      onChange={(e) => setFormData({ ...formData, cidade: e.target.value })}
+                  />
+                </div>
+
+                <div className="mb-3">
+                  <CFormLabel htmlFor="bairro">Bairro</CFormLabel>
+                  <CFormInput
+                      id="bairro"
+                      value={formData.bairro}
+                      onChange={(e) => setFormData({ ...formData, bairro: e.target.value })}
+                  />
+                </div>
+
+                <div className="mb-3">
+                  <CFormLabel htmlFor="logradouro">Logradouro</CFormLabel>
+                  <CFormInput
+                      id="logradouro"
+                      value={formData.logradouro}
+                      onChange={(e) => setFormData({ ...formData, logradouro: e.target.value })}
+                  />
+                </div>
+
+                <div className="mb-3">
+                  <CFormLabel htmlFor="role">Role</CFormLabel>
+                  <CFormSelect
+                      id="role"
+                      value={formData.role}
+                      onChange={(e) => setFormData({ ...formData, role: e.target.value })}
+                  >
+                    <option value="">Selecionar</option>
+                    {/* Opções para Role */}
+                  </CFormSelect>
+                </div>
+
+                <div className="mb-3">
+                  <CFormLabel htmlFor="vinculo">Vínculo</CFormLabel>
+                  <CFormSelect
+                      id="vinculo"
+                      value={formData.vinculo}
+                      onChange={(e) => setFormData({ ...formData, vinculo: e.target.value })}
+                  >
+                    <option value="">Selecionar</option>
+                    {/* Opções para Vínculo */}
+                  </CFormSelect>
+                </div>
+
+                <div className="mb-3">
+                  <CFormLabel htmlFor="possuiFormacao">Possui Formação?</CFormLabel>
+                  <CFormSelect
+                      id="possuiFormacao"
+                      value={formData.possuiFormacao}
+                      onChange={(e) => setFormData({ ...formData, possuiFormacao: e.target.value })}
+                  >
+                    <option value="">Selecionar</option>
+                    <option value={true}>Sim</option>
+                    <option value={false}>Não</option>
+                  </CFormSelect>
+                </div>
+
+                <CButton color="primary" onClick={salvar}>
+                  Salvar
+                </CButton>
+              </CForm>
+            </CCardBody>
+          </CCard>
+        </CCol>
+      </CRow>
+  );
+};
+
+export default CadastroDeFuncionario;

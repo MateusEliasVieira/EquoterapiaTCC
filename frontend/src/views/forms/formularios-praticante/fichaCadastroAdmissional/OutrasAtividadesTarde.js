@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, {useState} from 'react';
 import {
   CButton,
   CCard,
@@ -12,7 +12,7 @@ import {
 } from '@coreui/react';
 import axios from 'axios';
 
-const Educacao = () => {
+const OutrasAtividadesTarde = () => {
   const [formData, setFormData] = useState({
     segundaFeira: '',
     tercaFeira: '',
@@ -26,7 +26,7 @@ const Educacao = () => {
     },
   });
 
-  const salvarDadosEducacionais = async () => {
+  const salvar = async () => {
     var idPacienteSalvo = localStorage.getItem('idPacienteSalvo');
 
     if (idPacienteSalvo != null) {
@@ -67,7 +67,7 @@ const Educacao = () => {
       <CCol xs={12}>
         <CCard className="mb-4">
           <CCardHeader>
-            <strong>Outras atividades matutina</strong>
+            <strong>Outras atividades vespertinas</strong>
           </CCardHeader>
           <CCardBody>
             {/* Campos existentes */}
@@ -79,7 +79,7 @@ const Educacao = () => {
                 id="segundaFeira"
                 value={formData.segundaFeira}
                 onChange={(e) =>
-                  setFormData({ ...formData, segundaFeira: e.target.value })
+                  setFormData({...formData, segundaFeira: e.target.value})
                 }
               />
             </div>
@@ -90,7 +90,7 @@ const Educacao = () => {
                 id="tercaFeira"
                 value={formData.tercaFeira}
                 onChange={(e) =>
-                  setFormData({ ...formData, tercaFeira: e.target.value })
+                  setFormData({...formData, tercaFeira: e.target.value})
                 }
               />
             </div>
@@ -101,7 +101,7 @@ const Educacao = () => {
                 id="quartaFeira"
                 value={formData.quartaFeira}
                 onChange={(e) =>
-                  setFormData({ ...formData, quartaFeira: e.target.value })
+                  setFormData({...formData, quartaFeira: e.target.value})
                 }
               />
             </div>
@@ -112,7 +112,7 @@ const Educacao = () => {
                 id="quintaFeira"
                 value={formData.quintaFeira}
                 onChange={(e) =>
-                  setFormData({ ...formData, quintaFeira: e.target.value })
+                  setFormData({...formData, quintaFeira: e.target.value})
                 }
               />
             </div>
@@ -123,7 +123,7 @@ const Educacao = () => {
                 id="sextaFeira"
                 value={formData.sextaFeira}
                 onChange={(e) =>
-                  setFormData({ ...formData, sextaFeira: e.target.value })
+                  setFormData({...formData, sextaFeira: e.target.value})
                 }
               />
             </div>
@@ -134,7 +134,7 @@ const Educacao = () => {
                 id="sabado"
                 value={formData.sabado}
                 onChange={(e) =>
-                  setFormData({ ...formData, sabado: e.target.value })
+                  setFormData({...formData, sabado: e.target.value})
                 }
               />
             </div>
@@ -145,12 +145,12 @@ const Educacao = () => {
                 id="domingo"
                 value={formData.domingo}
                 onChange={(e) =>
-                  setFormData({ ...formData, domingo: e.target.value })
+                  setFormData({...formData, domingo: e.target.value})
                 }
               />
             </div>
             {/* Botão para salvar */}
-            <CButton color="primary" onClick={salvarDadosEducacionais}>
+            <CButton color="primary" onClick={salvar}>
               Salvar
             </CButton>
           </CCardBody>
@@ -160,4 +160,4 @@ const Educacao = () => {
   );
 };
 
-export default Educacao;
+export default OutrasAtividadesTarde;

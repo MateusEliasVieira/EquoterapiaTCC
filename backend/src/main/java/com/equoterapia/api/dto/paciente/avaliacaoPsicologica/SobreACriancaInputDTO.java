@@ -1,5 +1,6 @@
 package com.equoterapia.api.dto.paciente.avaliacaoPsicologica;
 
+import com.equoterapia.api.dto.paciente.PacienteIdDTO;
 import com.equoterapia.domain.model.paciente.Paciente;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotNull;
@@ -26,7 +27,7 @@ public class SobreACrianca {
     private String alimentacao;
     private String observacao;
 
-    private Paciente paciente;
+    private PacienteIdDTO paciente;
 
 }
 
