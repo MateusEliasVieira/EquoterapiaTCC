@@ -1,5 +1,6 @@
 package com.equoterapia.api.dto.paciente.avaliacaoPsicologica;
 
+import com.equoterapia.api.dto.paciente.PacienteIdDTO;
 import com.equoterapia.domain.enums.PreencherLegenda;
 import com.equoterapia.domain.model.paciente.Paciente;
 import jakarta.persistence.*;
@@ -11,7 +12,7 @@ import lombok.*;
 @AllArgsConstructor
 @NoArgsConstructor
 @ToString
-public class RelacaoFamiliarExaminado {
+public class RelacaoFamiliarExaminadoInputDTO {
 
     // Relação da família com o examinado (percepção do entrevistador)
 
@@ -30,7 +31,7 @@ public class RelacaoFamiliarExaminado {
     private PreencherLegenda ansiedadePercebidaEntrevistador;
 
 
-    private Paciente paciente;
+    private PacienteIdDTO paciente;
 
 }
 

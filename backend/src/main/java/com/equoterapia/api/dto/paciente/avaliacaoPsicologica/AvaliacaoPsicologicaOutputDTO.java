@@ -1,6 +1,6 @@
 package com.equoterapia.api.dto.paciente.avaliacaoPsicologica;
 
-import com.equoterapia.domain.model.paciente.Paciente;
+import com.equoterapia.api.dto.paciente.Paciente;
 import lombok.*;
 
 @Getter
@@ -8,7 +8,7 @@ import lombok.*;
 @AllArgsConstructor
 @NoArgsConstructor
 @ToString
-public class AvaliacaoPsicologicaInputDTO {
+public class AvaliacaoPsicologicaOutputDTO {
 
     // Avaliação dos aspectos psicológicos
 

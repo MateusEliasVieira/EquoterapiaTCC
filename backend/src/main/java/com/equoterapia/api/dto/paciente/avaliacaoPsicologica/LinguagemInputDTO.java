@@ -1,5 +1,6 @@
 package com.equoterapia.api.dto.paciente.avaliacaoPsicologica;
 
+import com.equoterapia.api.dto.paciente.PacienteIdDTO;
 import com.equoterapia.domain.enums.PreencherLegenda;
 import com.equoterapia.domain.model.paciente.Paciente;
 import jakarta.persistence.*;
@@ -11,7 +12,7 @@ import lombok.*;
 @AllArgsConstructor
 @NoArgsConstructor
 @ToString
-public class Linguagem {
+public class LinguagemInputDTO {
 
     // Linguagem
 
@@ -32,7 +33,7 @@ public class Linguagem {
     private PreencherLegenda frasesCompletas;
 
 
-    private Paciente paciente;
+    private PacienteIdDTO paciente;
 
 }
 

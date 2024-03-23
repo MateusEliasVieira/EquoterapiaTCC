@@ -1,7 +1,7 @@
 package com.equoterapia.api.dto.paciente.avaliacaoPsicologica;
 
+import com.equoterapia.api.dto.paciente.PacienteIdDTO;
 import com.equoterapia.domain.model.paciente.Paciente;
-import jakarta.persistence.*;
 import lombok.*;
 
 @Getter
@@ -9,7 +9,7 @@ import lombok.*;
 @AllArgsConstructor
 @NoArgsConstructor
 @ToString
-public class AvaliacaoPsicologica {
+public class AvaliacaoPsicologicaInputDTO {
 
     // Avaliação dos aspectos psicológicos
 
@@ -20,7 +20,7 @@ public class AvaliacaoPsicologica {
 
     private String imagemAssinaturaOuCRPECarimbo;
 
-    private Paciente paciente;
+    private PacienteIdDTO paciente;
 
 }
 

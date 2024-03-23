@@ -1,6 +1,6 @@
 package com.equoterapia.api.dto.paciente.avaliacaoPsicologica;
 
-import com.equoterapia.domain.model.paciente.Paciente;
+import com.equoterapia.api.dto.paciente.Paciente;
 import jakarta.validation.constraints.NotBlank;
 import lombok.*;
 
@@ -9,7 +9,7 @@ import lombok.*;
 @AllArgsConstructor
 @NoArgsConstructor
 @ToString
-public class SaudeInputDTO {
+public class SaudeOutputDTO {
 
     // Saúde
 

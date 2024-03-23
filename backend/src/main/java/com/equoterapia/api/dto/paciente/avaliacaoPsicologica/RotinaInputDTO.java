@@ -1,7 +1,7 @@
 package com.equoterapia.api.dto.paciente.avaliacaoPsicologica;
 
+import com.equoterapia.api.dto.paciente.PacienteIdDTO;
 import com.equoterapia.domain.model.paciente.Paciente;
-import jakarta.persistence.*;
 import jakarta.validation.constraints.NotBlank;
 import lombok.*;
 
@@ -10,7 +10,7 @@ import lombok.*;
 @AllArgsConstructor
 @NoArgsConstructor
 @ToString
-public class Rotina {
+public class RotinaInputDTO {
 
     // Rotina
 
@@ -24,7 +24,7 @@ public class Rotina {
     @NotBlank
     private String consideracoesSobreRotina;
 
-    private Paciente paciente;
+    private PacienteIdDTO paciente;
 
 }
 

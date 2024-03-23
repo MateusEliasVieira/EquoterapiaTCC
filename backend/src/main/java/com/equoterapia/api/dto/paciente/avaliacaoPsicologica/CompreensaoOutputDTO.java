@@ -1,9 +1,9 @@
 package com.equoterapia.api.dto.paciente.avaliacaoPsicologica;
 
+import com.equoterapia.api.dto.paciente.Paciente;
 import com.equoterapia.api.dto.paciente.PacienteIdDTO;
 import com.equoterapia.domain.enums.PreencherLegenda;
-import com.equoterapia.domain.model.paciente.Paciente;
-import jakarta.persistence.*;
+import jakarta.persistence.Enumerated;
 import jakarta.validation.constraints.NotBlank;
 import lombok.*;
 
@@ -12,7 +12,7 @@ import lombok.*;
 @AllArgsConstructor
 @NoArgsConstructor
 @ToString
-public class CompreensaoInputDTO {
+public class CompreensaoOutputDTO {
 
     // Compreensão
 
@@ -25,7 +25,7 @@ public class CompreensaoInputDTO {
     private PreencherLegenda executaOrdensComplexas;
 
 
-    private PacienteIdDTO paciente;
+    private Paciente paciente;
 
 }
 

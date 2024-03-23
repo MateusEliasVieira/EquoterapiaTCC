@@ -1,8 +1,8 @@
 package com.equoterapia.api.dto.paciente.avaliacaoPsicologica;
 
+import com.equoterapia.api.dto.paciente.Paciente;
 import com.equoterapia.domain.enums.PreencherLegenda;
-import com.equoterapia.domain.model.paciente.Paciente;
-import jakarta.persistence.*;
+import jakarta.persistence.Enumerated;
 import jakarta.validation.constraints.NotNull;
 import lombok.*;
 
@@ -11,7 +11,7 @@ import lombok.*;
 @AllArgsConstructor
 @NoArgsConstructor
 @ToString
-public class SaudeMentalInputDTO {
+public class SaudeMentalOutputDTO {
 
     // Saúde mental
 
